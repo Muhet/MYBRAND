@@ -36,7 +36,6 @@ const fetchBlog = async () => {
     const response = await fetch("http://localhost:3000/Blogs");
     const post = await response.json();
     const BlogsContainer = document.querySelector("#Blogs");
-    const BlogsCont = document.querySelector("#Client_Blogs");
     let templete = "";
     let clientBlog = "";
     post.forEach((blog) => {
@@ -100,12 +99,10 @@ const fetch_clientBlog = async () => {
 }
 fetch_clientBlog();
 /* READMORE ABOUT POST ON CLIENT SIDE */
-const fetchRead = async (article_id) => {
+const fetchRead = async () => {
     let myTemp="";
  const readMoreBlog = document.querySelector('#might')   
-const res = await fetch(`http://localhost:3000/Blogs/${article_id}`,{
- 
-});
+const res = await fetch(`http://localhost:3000/Blogs`)
 const post = await res.json();
 post.forEach((post)=>{
 
@@ -129,10 +126,7 @@ post.forEach((post)=>{
         `
     })
 
-
-
- 
-    readMoreBlog.innerHTML = myTemp;
+ readMoreBlog.innerHTML = myTemp;
 }
 fetchRead();
 /* DELETE FUNCTION */
