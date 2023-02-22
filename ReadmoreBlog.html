@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Poppins:wght@100;200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./ReadmoreBlog.css">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script> 
+    <script>
+        $(document).ready(function(){
+            $('.menu').click(function(){
+                $('ul').toggleClass('show')
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <img src="../images/Logo.png" alt="" class="logo"/>
+           <nav>
+            <ul> 
+                <img src="../images/roundedClose.png" alt="menu" class="menu" id="close" />
+                <li><a href="index.html" class="ul">Home</a></li>
+                <li><a href="index.html">About me</a></li>
+                <li><a href="index.html">Skills</a></li>
+                <li><a href="index.html">Works</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="index.html">Contact</a></li>
+                <span class="btn_blog">
+                    <button type="button" class="button" >Login</button>
+                    <button  type="button" class="button btn_nav_blog" >Login</button>
+                </span>
+            </ul>
+            </nav>
+            <labe>
+                <img src="../images/MenuIcon.png" alt="menu" class="menu" />
+            </labe>
+        </div>
+        <main class="main"><!--  -->
+            
+         <div id="might">
+
+         </div>
+        </main>
+            <!-- FOOTER SECTION -->
+
+     <section class="mainfooter">
+        <div class="navbarFooter">
+            <div class="navbarFOne">
+                <h4>About Me</h4>
+                <ul>
+                    <li><a href="">Kind & Loving</a></li>
+                    <li><a href="">Chelsea fun</a></li>
+                    <li><a href="">Singer</a></li>
+                </ul>
+            </div>
+            <div class="navbarFOne">
+                <h4>Our Service</h4>
+                <ul>
+                    <li><a href="">Web Design</a></li>
+                    <li><a href="">Networking</a></li>
+                    <li><a href="">PC Maintaince</a></li>
+                </ul>
+            </div>
+            <div class="navbarFOne">
+                <h4>Our Expectation</h4>
+                <ul>
+                    <li><a href="">Love</a></li>
+                    <li><a href="">Satisfaction</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <footer class="secfooter">
+            <ul>
+                <li><a href=""><img class="IGImage" src="../images/SMedia/IGICN.png" alt="" /> </a></li>
+                <li><a href=""><img class="TWImage" src="../images//SMedia/twitter.png" alt="" /></a></li>
+                <li><a href=""><img class="INImage" src="../images/SMedia/INICN.png" alt="" /></a></li>
+                <li><a href=""><img class="GITImage" src="../images/SMedia/git.png" alt="" /></a></li>
+                <li><a href=""><img class="TWImage" src="../images/SMedia/facebook.png" alt="" /></a></li>
+            </ul>
+        </footer>
+    </section>
+    </div>
+    <script src="./JS/blogs.js"></script>
+</body>
+</html>

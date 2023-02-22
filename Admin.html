@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Poppins:wght@100;200&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./Admin.css">
+    <link rel="stylesheet" href="../CSS/profileSetting.css">
+    <title>My-Brand--Admin</title>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar active">
+            <div class="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="logo">
+                <img src="../images/img/Logo.png" alt="" id="my__logo">
+            </div>
+            <div class="links">
+
+                <a href="Admin.html">
+                    Dashboard
+                    <i class="fa fa-home "></i>
+
+                </a>
+                <a href="ArticleList.html">
+                    Article List
+                    <i class="fa fa-list"></i>
+
+                </a>
+                <a href="comentList.html">
+                    Coments List
+                    <i class="fa fa-comments"></i>
+
+                </a>
+                <a href="new_article.html">
+                    new Article
+                    <i class="fa fa-newspaper"></i>
+
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="rightSide">
+        <header>
+            <span class="profiles" onclick="toggleMenu();">
+                <img src="../images/img/dario.jpg" alt="" id="profile" onclick="menuToggle();"><span id="my__name">
+                </span>
+            </span>
+        </header>
+        <main>
+            <h1>Admin's Panel</h1>
+            <div class="cards_Main_bords">
+
+
+
+                <div class="leftCards">
+                    <div class="sylinder">
+                        <div class="icon">
+                            <img src="../images/Like.png" alt="" id="likes">
+                        </div>
+                        <div class="word">
+                            <h2>Likes</h2>
+                        </div>
+                        <div class="outerCicle">
+                            <div class="innerCircle">
+                                <h1>98</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sylinder">
+                        <div class="icon">
+                            <img src="../images/newComents.png" alt="" id="likes">
+                        </div>
+                        <div class="word">
+                            <h2>coments</h2>
+                        </div>
+                        <div class="outerCicle">
+                            <div class="innerCircle">
+                                <h1>40</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="rightCards">
+                    <div class="sylinder">
+                        <div class="icon">
+                            <img src="../images/people.png" alt="" id="likes">
+                        </div>
+                        <div class="word">
+                            <h2>Entries</h2>
+                        </div>
+                        <div class="outerCicle">
+                            <div class="innerCircle">
+                                <h1>03</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sylinder">
+                        <div class="icon">
+                            <img src="../images/Views.png" alt="" id="likes">
+                        </div>
+                        <div class="word">
+                            <h2>Views</h2>
+                        </div>
+                        <div class="outerCicle">
+                            <div class="innerCircle">
+                                <h1>20</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action">
+                    <div class="edit_settings">
+                        <img src="../images/img/MenuIcon.png" alt="menu" class="menu">
+                    </div>
+                    <div class="menuprofile">
+                        <h3>Muheto G. Darius<br><span>Website Disigner</span></h3>
+                        <ul>
+                            <li><i class="fa fa-user-circle" aria-hidden="true"></i><a href="profileSetting.html">Edit Profile</a></li>
+                            <li><i class="fa fa-inbox" aria-hidden="true"></i><a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">Inbox</a></li>
+                            <li><i class="fa fa-cog" aria-hidden="true"></i><a href="">Settings</a></li>
+                            <li><i class="fa fa-question-circle" aria-hidden="true"></i><a href="">Help</a></li>
+                            <li><i class="fa fa-sign-out" aria-hidden="true"></i><a href="Login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+        <footer>
+            <h3>CopyRight &copy;2023</h3>
+        </footer>
+    </div>
+
+    </div>
+     
+    <script src="../JS/index.js"></script>
+    <script type="text/javascript">
+        function toggleMenu() {
+            let Mmenu = document.querySelector('.menuprofile ');
+            Mmenu.classList.toggle('active')
+        }
+
+
+    </script>
+</body>
+
+</html>

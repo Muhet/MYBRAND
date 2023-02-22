@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Poppins:wght@100;200&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./profileSetting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My-Brand</title>
+</head>
+<body>
+    <main>
+       <div class="container_EditProfile" id="myDiv">
+          <div class="form_group_EditProfile">
+                    <form action="" class="form_EditProfile">
+                        <div class="leftSide_EditProfile">
+                            <img src="../images/dario.jpg" class="img_EditProfile">
+                            <button type="button" class="file"> Update Profile Picture</button>
+                        </div>
+                        <div class="rightSide_EditProfile">
+                            <div class="close">
+                                <a href="Admin.html">
+                                <i class="fa fa-times-circle"></i></a>
+                            </div>
+                            <h2>Profile Settings</h2>
+                            <hr>
+
+                            <div class="names_EditProfile">
+                                <span>
+                                    <label for="name">Last Name</label><br/>
+                                    <input type="text" class="input_EditProfile" placeholder="last name here.." value="Darius">
+                                </span>
+                                <span>
+                                    <label for="name">First Name</label><br/>
+                                    <input type="text" class="input_EditProfile" placeholder="first name here.." value="Muheto">
+                                </span>
+                               
+                            </div>
+                            <label>Mobile Number</label><br/>
+                            <input type="number" class="input_EditPro2" placeholder="Mobile number" value="0786964660"><br/>
+                            <label>Password</label><br/>
+                            <input type="password" class="input_EditPro2" placeholder="Passord" value="123456"><br/>
+                            <label>E_mail Address</label><br/>
+                            <input type="text" class="input_EditPro2" placeholder="Your Email Address" value="muhedarius96@gmail.com"><br/>
+                            <label>Address Line 01</label><br/>
+                            <input type="text" class="input_EditPro2" placeholder="Address line number one" value="Kigali-Nyamirambo"><br/>
+
+                            <button type="button" class="Update">Update</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </main>
+    <script type="text/javascript">
+        function toggleEdit_Menu() {
+            let Mmenu = document.querySelector('.container_EditProfile ');
+            Mmenu.classList.toggle('newActive')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+*{
+    list-style: none;
+    text-decoration: none;
+}
+body{
+    background: #F9FAFB;
+    font-family: 'Poppins', sans-serif;
+}
+
+.loginForm{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    
+   
+}
+.logo{
+    margin: 20px;
+}
+.my_logo{
+    max-width: 150px;
+}
+#avatar{
+    max-width: 80px;
+    outline:1px solid #1F1652;
+    border-radius: 50%;
+}
+.avatar{
+  margin-bottom: 20px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid rgb(173, 173, 173);
+    width: 300px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+    background: #fff;
+}
+.input{
+    padding: 10px;
+   margin-bottom: 15px;
+   border: none;
+   outline: 1px solid rgb(173, 173, 173);
+   border-radius: 10px;
+}
+.btn-btn {
+    background-color: #1F1652;
+    padding: 7px 15px 10px 15px;
+    border-radius: 20px;
+    margin-right: 90px;
+    color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.btn-signup {
+    background-color: transparent;
+    outline: 1px solid #1F1652;
+    padding: 7px 15px 10px 15px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.btn-signup:hover {
+   color: #fff;
+   background: #1F1652;
+   transition-duration: 1s;
+}
+.btn {
+ display: inline;
+ padding: 20px;
+
+}
+.input::placeholder{
+    font-family: 'Poppins', sans-serif;
+   text-align: center;
+}
+.btn-btn:hover {
+    background-color: transparent;
+    color: #1F1652;
+    transition-duration: 1s;
+}
+@media(max-width:600px){
+    .logo{
+        max-width: 100px;
+       
+    }
+    .my_logo{
+        max-width: 100px;
+    }
+}
+@media(max-width: 858px){
+    .logo{
+        max-width: 100px;
+       
+    }
+    .my_logo{
+        max-width: 100px;
+    }
+}

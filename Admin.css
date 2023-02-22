@@ -1,0 +1,1295 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    background: #e9e7e7;
+    font-family: 'Poppins', sans-serif;
+    color: #1f1652;
+}
+
+.action {
+    position: fixed;
+    top: 120px;
+    right: 30px
+}
+#profile{
+    margin-top: -50px;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -160px;
+    width: 170px;
+    height: 100%;
+    background: #1f1652;
+    border-top-right-radius: 20px;
+    transition: all 300ms ease-in-out;
+}
+
+.sidebar .toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+}
+
+.sidebar .toggle-btn span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transform: translate(0%);
+    transition: all 300ms ease-in-out;
+}
+
+.sidebar .toggle-btn span:nth-child(1) {
+    top: 45%;
+}
+
+.sidebar .toggle-btn span:nth-child(2) {
+    top: 90%;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    line-height: 50px;
+    justify-content: center;
+    margin: 100px 0 0 -29px;
+
+}
+
+
+.links a {
+    display: block;
+    text-decoration: none;
+    color: #f5f5f5;
+    cursor: pointer;
+    border-bottom: 1px solid #505050;
+    margin-left: 20px;
+    padding-right: 20px;
+    text-align: right;
+
+}
+
+i {
+    display: inline-block;
+    text-align: right;
+    margin-left: 25px;
+
+}
+
+.links a:active,
+.links a:focus,
+.links a:hover {
+    background: #fff;
+    color: #1f1652;
+    transition: all 200ms ease-in;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.logo {
+    margin: 80px 0 0 50px;
+    margin-left: 15px;
+
+}
+
+.logo label {
+    color: #fff;
+}
+
+.logout {
+    margin: 80px 0 0 35px;
+    border-bottom: none;
+
+}
+
+.logout a {
+    color: #fff;
+    text-decoration: none;
+    margin: 50px 0 -50px 45px;
+
+}
+
+.logout a:hover {
+    background: #fff;
+    padding: 9px;
+    color: #1f1652;
+    border-radius: 20px;
+
+}
+
+.sidebar.active {
+    left: 0px;
+}
+
+.sidebar.active .toggle-btn span:nth-child(1) {
+    top: 50%;
+    transform: translateY(50%) rotate(45deg);
+
+}
+
+.sidebar.active .toggle-btn span:nth-child(2) {
+    display: none;
+}
+
+.sidebar.active .toggle-btn span:nth-child(3) {
+    top: 50%;
+    transform: translateY(50%) rotate(-45deg);
+
+}
+
+/* 
+nav ul {
+    max-width: 150px;
+    height: 100vh;
+    background: #1f1652;
+    border-top-right-radius: 60px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    display: fixed;
+    top: -20px;
+    left: 20px;
+
+} */
+/* 
+ul.show {
+    left: 0;
+}
+ */
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 15%;
+}
+
+.rightSide {
+    margin: 40px 0 0 150px;
+}
+
+#setting {
+    max-width: 35px;
+}
+
+#my__logo {
+    margin: 0px 10px;
+    max-width: 100px;
+    padding: 0 10px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+/* .list {
+    align-items: center;
+    margin-top: 100px;
+    gap: 10px;
+}
+
+.list li {
+    margin-top: 20px;
+} */
+/* 
+.back__btn {
+    cursor: pointer;
+    background: #fff;
+    max-width: fit-content;
+    margin: 200px auto 0 auto;
+    border-radius: 50%;
+    padding: 2px 5px;
+} */
+
+/* .backBTN {
+    max-width: 30px;
+
+}
+ */
+/* nav a {
+    color: #fff;
+    margin-top: -30px;
+} */
+
+.photo {
+    max-width: 30px;
+    outline: 1px solid #1f1652;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.profile {
+    margin: 20px 40px;
+    cursor: pointer;
+}
+
+hr {
+    max-width: 70px;
+    display: flex;
+    margin-left: 65px;
+    margin-top: -6px;
+}
+
+#profil__name {
+    margin-left: 4px;
+}
+
+/* HERO SECTION */
+/* ################################# */
+/* the beginning of header CSS */
+
+header {
+    height: 10%;
+
+}
+
+.profiles {
+    float: right;
+    margin: -20px 30px 0 0;
+    cursor: pointer;
+
+}
+
+.action #profile {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.action .menuprofile {
+    position: absolute;
+    top: -35px;
+    right: -10px;
+    padding: 10px 20px;
+    background: #fff;
+    width: 200px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    transition: 0.5s;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.action .menuprofile.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.action .menuprofile::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+.action .menuprofile h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 17px;
+    padding: 20px 0;
+    font-weight: 500;
+    list-style: 1rem;
+}
+
+.action .menuprofile h3 span {
+    font-size: 14px;
+    font-weight: 400;
+    color: gray;
+}
+
+.action .menuprofile ul li {
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action .menuprofile ul li i {
+    margin-right: 15px;
+    max-width: 20px;
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.action .menuprofile ul li i:hover {
+    opacity: 0.5;
+}
+
+.action .menuprofile ul li a {
+    display: inline-block;
+    color: #1f1652;
+    font-weight: 500;
+    opacity: 100%;
+}
+
+.action .menuprofile ul li a:hover {
+    color: rebeccapurple;
+
+}
+
+
+#profile {
+    margin: 0 0 0 10px;
+}
+
+#my__name {
+    margin-top: -5px;
+}
+
+#my__nameSidebar {
+    display: none;
+    color: white;
+    font-size: 12px;
+    margin-top: 8px;
+    margin-left: -10px;
+
+}
+
+
+#profile {
+    max-width: 45px;
+    outline: 1px solid #1f1652;
+    border-radius: 50%;
+}
+
+#profileSidebar {
+    display: none;
+    max-width: 40px;
+    outline: 1px solid #1f1652;
+    border-radius: 50%;
+    margin: -30px 50px 0 50px;
+}
+
+.menu {
+    display: none;
+    max-width: 25px;
+    max-height: 25px;
+    cursor: pointer;
+}
+
+/* the end of header CSS */
+/* ################################# */
+/* the beginning of main CSS */
+main {
+    height: 80%;
+
+
+}
+
+main h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.cards_Main_bords {
+    display: flex;
+    margin-top: 60px;
+}
+
+main .leftCards {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 100px;
+
+}
+
+main .rightCards {
+    margin-top: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -60px;
+
+}
+
+.sylinder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-radius: 55px;
+    width: 300px;
+    height: 107px;
+    border: 1px solid #1f1652;
+    padding-left: 0px;
+    ;
+    background: #1f1652;
+    margin-bottom: 70px;
+
+
+}
+
+.sylinder h2 {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.outerCicle {
+    position: absolute;
+    border: 1px solid #1f1652;
+    padding: 3px;
+    border-radius: 50%;
+    max-width: fit-content;
+    background: #fff;
+    margin-left: 198px;
+
+
+}
+
+.innerCircle h1 {
+    display: flex;
+    outline: 1px solid #1f1652;
+    max-width: fit-content;
+    text-align: center;
+    margin: 0.5px;
+    border-radius: 50%;
+    padding: 13px 20px;
+    color: #1f1652;
+    font-size: 3.8rem;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    font-family: monospace;
+
+}
+
+.icon {
+    margin-left: 10px;
+}
+
+#likes {
+    max-width: 40px;
+    margin: 30px 0 20px 20px;
+
+}
+
+.word {
+    margin-left: -25px;
+    margin-right: 0px;
+}
+
+/* VIEW COMMENT PAGE DESIGN */
+/* ########################## */
+main h2 {
+    text-align: center;
+}
+
+.cards_Main_comment {
+    margin-top: 20px;
+    display: flex;
+}
+
+.right_card_Comment {
+    max-width: 600px;
+    margin-left: 30px;
+}
+
+#webDesImage {
+    max-width: 400px;
+    height: 300px;
+    border-radius: 30px;
+}
+
+.Viewcomments {
+    outline: 1px solid lightgray;
+    box-shadow: 1px 0 4px rgba(0, 0, 0, 0.3);
+    background: #e4e3e38e;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    margin-left: 80px;
+}
+
+.Viewcomments p {
+    color: #1f1652;
+    font-size: 15px;
+}
+
+.comentetorIMG {
+    margin-left: 250px;
+    margin-top: -20px;
+}
+
+#viewer {
+    width: 20px;
+}
+
+#viewer_name {
+    font-size: 12px;
+}
+
+/* END OF VIEW COMMENT PAGE DESIGN */
+/* ########################## */
+#likeICN {
+
+    margin-left: -60px;
+
+}
+
+#viewICN {
+
+    margin-left: -55px;
+    width: 50px;
+
+}
+
+.comentIcon {
+    margin-left: -60px;
+    margin-top: 50px;
+    padding-bottom: -20px;
+}
+
+#comentICN {
+    width: 40px;
+    padding-right: 20px;
+}
+
+.leftCards label {
+    display: inline-block;
+    justify-content: space-between;
+    width: fit-content;
+    border: 1px solid #1f1652;
+    padding: 20px 0 20px 40px;
+    margin: 50px auto;
+    border-radius: 50px;
+    background: #1f1652;
+}
+
+.rightCards {
+    margin-top: 40px;
+
+}
+
+.rightCards label {
+    display: inline-block;
+    justify-content: space-around;
+    width: fit-content;
+    border: 1px solid #1f1652;
+    padding: 20px 0 20px 40px;
+    margin: auto 0;
+    border-radius: 50px;
+    background: #1f1652;
+}
+
+/* THE BEGINNING OF NEW ARTICLE DESIGN */
+/* ##################################### */
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 50px;
+
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    outline: 1px solid lightgray;
+    padding: 30px 40px;
+    border-radius: 20px;
+    background: #fff;
+}
+
+.input {
+    width: 350px;
+    border: none;
+    outline: 1px solid lightgray;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+.inputSearch::placeholder {
+    padding-left: 20px;
+}
+
+
+.textArea {
+    width: 350px;
+    border: none;
+    outline: 1px solid lightgray;
+    padding: 10px 20px;
+    border-radius: 2px;
+}
+
+.new_art_btn {
+    display: flex;
+    border: none;
+    max-width: fit-content;
+    padding: 10px 30px;
+    background: #1f1652;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.new_btn_art {
+    display: flex;
+    justify-content: center;
+}
+
+/* the beginning of Table design CSS */
+/* ################################# */
+
+
+.table_box {
+    margin: 90px 0;
+
+}
+
+
+.table_row {
+    display: table;
+    width: 90%;
+    margin: 4px auto;
+    background: transparent;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 0;
+    color: #1f1652;
+    font-size: 13px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+
+}
+
+.table_cell {
+    display: table-cell;
+    width: 30%;
+    text-align: center;
+    padding: 4px 0;
+    border-left: 1px solid #d6d4d4;
+    vertical-align: middle;
+
+}
+
+.actionIcons {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#editIcon {
+    cursor: pointer;
+    width: 20px;
+}
+
+#deleteIcon {
+    cursor: pointer;
+    width: 20px;
+}
+
+.table_head {
+    background: #1f1652;
+    box-shadow: none;
+    color: #fff;
+    font-weight: 600;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.table_head .table_cell {
+    border-left: none;
+}
+
+.first_cell {
+    width: 150px;
+    padding: 0 10px;
+}
+
+/* the end of Table design CSS */
+/* ################################# */
+
+/* the end of main CSS */
+/* ################################# */
+
+
+
+/* THE BEGINNING OF EDIT-PROFILE CSS */
+/* ################################## */
+.cardContainer_Admin {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+    width: 330px;
+    height: 350px;
+     gap: 30px;
+    background: #1f1652;
+    top: 0px;
+    border-radius: 20px;
+    justify-content: center;
+    margin: auto;
+   
+}
+
+.main_Admin {
+    
+     max-width: auto;
+    background: #f5f5f5;
+    width: 330px;
+    height: 500px;
+    margin: 60px auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header_Admin {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+}
+
+.header_Admin span i {
+    color: #d6d4d4;
+    margin-top: 50px;
+
+}
+
+.profilePhoto_Admin {
+    max-width: 100px;
+    border-radius: 50%;
+    outline: 2px solid #fff;
+
+}
+
+.imageprof_Admin {
+    display: flex;
+    justify-content: center;
+}
+
+.cardContainer_Admin h3 {
+    display: flex;
+    flex-direction: column;
+    color: #e9e7e7;
+    justify-content: center;
+    text-align: center;
+    font-weight: 200;
+}
+.cardContainer_Admin h3 span{
+    font-size: 13px;
+    font-weight: 100;
+}
+.socialMedias_Admin {
+    display: flex;
+    justify-content: center;
+}
+
+.socialMedias_Admin ul {
+    display: flex;
+    margin-left: -20px;
+}
+
+.socialMedias_Admin ul li i {
+    color: #d6d4d4;
+}
+
+.moreBTN_Admin {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.clickMe {
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 8px rgb(2, 7, 73, 0.7);
+
+}
+.clickMe:hover {
+    background: #1f1652;
+    color: #e9e7e7;
+    box-shadow: none;
+    transition-duration: 500ms;
+
+}
+
+.main_Admin h4 {
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.main_Admin h5 {
+    text-align: center;
+    font-weight: 300;
+    color: #505050;
+}
+
+
+/* THE END OF EDIT-PROFILE CSS */
+/* ################################## */
+/* the beginning of footer CSS */
+
+footer {
+    display: none;
+     height: 50px;
+    background: #322e4b;
+    margin-left: -108px;
+    margin-top:110px;
+    
+}
+
+footer h3 {
+    text-align: center;
+    width: auto;
+    color: #f5f5f5;
+    line-height: 40px;
+}
+
+/* the end of footer CSS */
+
+@media(max-width: 909px) {
+
+    /* The beginnig of Sidebar section CSS */
+    /* ################################# */
+
+    .leftSide {
+        width: 30%;
+    }
+
+    #my__logo {
+        margin: 40px 10px;
+        max-width: 60px;
+        padding: 0 10px;
+        background: #fff;
+        border-radius: 20px;
+        margin-left: 0px;
+        margin-top: -30px;
+    }
+
+    #profile {
+        display: block;
+        margin-top: 0px;
+        margin-right: 40px;
+    }
+
+    hr {
+        display: none;
+    }
+
+    #my__name {
+        display: none;
+    }
+
+    #my__nameSidebar {
+        display: block;
+
+    }
+
+    #profileSidebar {
+        display: block;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: -150px;
+        transition: all .5s;
+        border-top-right-radius: 20px;
+    }
+
+    nav ul li {
+        padding-top: -60px;
+    }
+
+    .logout {
+        margin-left: -30px;
+
+    }
+
+    /* The end of Sidebar section CSS */
+    /* ################################# */
+
+    /* The beginning header of Sidebar section CSS */
+    /* ################################# */
+    header {
+        margin-right: -40px;
+    }
+
+    /*  .menu {
+        cursor: pointer;
+        display: block;
+        float: right;
+        padding: 10px;
+        margin-top: -10px;
+    }
+ */
+    #setting {
+        max-width: 25px;
+    }
+
+    /* The end of header section CSS */
+    /* ################################# */
+
+    /* The beginning of Main section CSS */
+    /* ################################# */
+    .cards_Main_bords {
+        flex-direction: column;
+
+    }
+
+
+
+
+
+    /* DASHBOARD OF LIST OF ARTICLES */
+    /* ################################# */
+
+    /* The beginning of Main section CSS */
+    /* ################################# */
+}
+
+@media(max-width: 600px) {
+
+    /* The the beginnig of Sidebar section CSS */
+    /* ################################# */
+body{
+   width: 400px;
+}
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -95px;
+        width: 130px;
+        height: 100%;
+        background: #1f1652;
+        border-top-right-radius: 20px;
+        transition: all 300ms ease-in-out;
+    }
+
+    .links a {
+        font-size: 12px;
+        margin-right: -10px;
+        width: 120px;
+
+    }
+
+    .links i {
+        margin-left: 15px;
+    }
+
+    .sidebar.active {
+        left: 0px;
+    }
+
+    header {
+        margin-right: -40px;
+    }
+
+    .toggle-btn {
+        position: relative;
+        left: 95px;
+
+    }
+
+    .menu {
+        display: none;
+        float: right;
+        padding: 10px;
+        margin-top: -10px;
+    }
+
+    #setting {
+        max-width: 35px;
+        display: none;
+    }
+
+    .action .menuprofile {
+        top: -40px;
+        right: 30px;
+        width: 150px;
+
+    }
+
+    /* The end of header section CSS */
+    /* ################################# */
+
+    /* The beginning of main section CSS */
+    /* ################################# */
+    .cards_Main_bords {
+        margin-top: 40px;
+        margin-left: -20px;
+    }
+
+    .action .menuprofile::before {
+
+        right: 15px;
+
+    }
+
+    main h1 {
+        margin-top: 30px;
+        margin-left: -60px;
+        font-size: 17px;
+    }
+
+    main .leftCards {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-left: -70px;
+
+    }
+
+    .rightSide {
+        margin-left: 140px;
+    }
+
+    main .rightCards {
+        margin-top: 0px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        margin-left: -70px;
+
+    }
+
+    .sylinder {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-radius: 55px;
+        width: 270px;
+        height: 90px;
+        border: 1px solid #1f1652;
+        padding-left: 0px;
+        background: #1f1652;
+        padding-bottom: 4px;
+        margin-bottom: 20px;
+
+
+    }
+
+    .sylinder h2 {
+        position: relative;
+        color: #fff;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 20px;
+        margin-left: 0px;
+    }
+
+    .outerCicle {
+        position: absolute;
+        border: 1px solid #1f1652;
+        padding: 2px -1px 0 0;
+        border-radius: 50%;
+        max-width: fit-content;
+        background: #fff;
+        margin-left: 170px;
+    }
+
+    .innerCircle h1 {
+        display: flex;
+        outline: 1px solid #1f1652;
+        max-width: fit-content;
+        text-align: center;
+        margin: 0.5px;
+        border-radius: 50%;
+        padding: 13px 20px;
+        color: #1f1652;
+        font-size: 3.1rem;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-width: 1px;
+        font-family: monospace;
+
+    }
+
+    .icon {
+        margin-left: 10px;
+    }
+
+    #likes {
+        max-width: 40px;
+        margin: 30px 0 20px 20px;
+
+    }
+
+    .word {
+
+        margin-left: -25px;
+        margin-right: 0px;
+    }
+
+
+
+    /* THE BEGINNING OF TABLE DESIGN */
+    /* ################################## */
+    .table_box {
+        width: 430px;
+        margin-left: -170px;
+
+    }
+
+    .table_row {
+        font-size: 10px;
+    }
+
+    #editIcon {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+    }
+
+    #deleteIcon {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+    }
+
+    .last_cell {
+        padding-right: 10px;
+    }
+
+    /* THE END OF TABLE DESIGN */
+    /* ################################## */
+    /* THE BEGINNING OF FOOTER DESIGN */
+    footer {
+        display: none;
+    }
+
+    /* THE BEGINNING OF COMMENT VIEWS */
+    /* ################################# */
+
+    main h2 {
+        text-align: center;
+        margin-left: -160px;
+
+    }
+
+    .cards_Main_comment {
+        flex-direction: column;
+        margin-left: -60px;
+        width: 280px;
+    }
+
+    .right_card_Comment {
+        max-width: 350px;
+        margin-left: -30px;
+        margin-top: 15px;
+
+    }
+
+    #webDesImage {
+        width: 330px;
+        height: 200px;
+        margin-left: -35px;
+    }
+
+    .Viewcomments {
+        max-width: 400px;
+    }
+
+    .Viewcomments p {
+        color: #1f1652;
+        font-size: 15px;
+    }
+
+    .comentetorIMG {
+        margin-left: 250px;
+        margin-top: -20px;
+    }
+
+    #viewer {
+        display: none;
+    }
+
+    #viewer_name {
+        display: none;
+    }
+
+    /* THE BEGINNING OF NEW ARTICLE DESIGN */
+    /* ##################################### */
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-left: -100px;
+
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        outline: 1px solid lightgray;
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .input {
+        width: 250px;
+        border: none;
+        outline: 1px solid lightgray;
+        padding: 10px 20px;
+        border-radius: 2px;
+    }
+
+    .textArea {
+        width: 250px;
+        border: none;
+        outline: 1px solid lightgray;
+        padding: 10px 20px;
+        border-radius: 2px;
+    }
+
+    .new_art_btn {
+        display: flex;
+        border: none;
+        max-width: fit-content;
+        padding: 10px 30px;
+        background: #1f1652;
+        color: #fff;
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    .new_btn_art {
+        display: flex;
+        justify-content: center;
+    }
+    /* Start Page */
+    /* ############ */
+
+    
+.cardContainer_Admin {
+  width: 280px;
+   
+}
+
+.main_Admin {
+    margin-left: 3px;
+    width: 280px;
+}
+
+
+}

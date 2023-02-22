@@ -1,0 +1,25 @@
+{
+  "Blogs": [
+    {
+      "title": "Computer",
+      "category": "Maintainance",
+      "messageB": "MY BLOGS ARE BASED ON INFORMATION TECHNOLOGY",
+      "image": "C:\\fakepath\\Abakurambere-nAbahanuzi-212x300.jpg",
+      "id": 2
+    },
+    {
+      "title": "DARIUS",
+      "category": "Maintainance",
+      "messageB": "THIS IS A NEW ARTICAL YOU HAVE TO E=READ THIS ARTICLE BECAUSE IT IS IMPORTANT TO YOU",
+      "image": "C:\\fakepath\\Abakurambere-nAbahanuzi-212x300.jpg",
+      "id": 3
+    },
+    {
+      "title": "WELCOME",
+      "category": "Maintainance",
+      "messageB": "THIS IS THE OTHER ONE THE YOU NEED TO READ AND UNDERSTAND IT CLEARLY",
+      "image": "D:\\Anndela\\images\\gad.jpg",
+      "id": 4
+    }
+  ]
+}

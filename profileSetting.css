@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body,
+html {
+    background: #F9FAFB;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container_EditProfile {
+    position: relative;
+    top: 80px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-width: 700px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid #b2b1b9;
+    height: 550px;
+    background: #fff;
+    border-radius: 5px;
+    transition-duration: 500ms;
+    visibility: visible;
+    opacity: 1;
+}
+.container_EditProfile.newActive{
+  visibility: hidden;
+    opacity: 0;
+}
+
+.close {
+    cursor: pointer;
+    margin-top: -60px;
+    float: right;
+    margin-right: -60px;
+    color: #1f1652;
+}
+
+.names_EditProfile {
+    display: flex;
+    gap: 30px;
+
+}
+
+.leftSide_EditProfile {
+    position: relative;
+    top: 150px;
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    align-items: center;
+    float: left;
+    margin-right: 30px;
+
+
+}
+
+.img_EditProfile {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    outline: 2px solid #1f1652;
+}
+
+.rightSide_EditProfile {
+    position: relative;
+    top: 50px;
+    float: right;
+    outline: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 0 15px;
+    padding-bottom: 30px;
+    margin-left: 10px;
+    background: #fff;
+}
+
+.rightSide_EditProfile h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-weight: 200;
+}
+
+.input_EditProfile {
+    border: none;
+    outline: 1px solid lightgray;
+    padding: 10px 20px 10px 5px;
+    border-radius: 5px;
+}
+
+hr {
+    display: flex;
+    margin-bottom: 20px;
+    opacity: 0.3;
+
+}
+
+.input_EditProfile::placeholder {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.input_EditPro2 {
+    width: 403px;
+    border: none;
+    outline: 1px solid lightgray;
+    padding: 10px 5px 10px 10px;
+    border-radius: 5px;
+}
+
+.input_EditPro2::placeholder {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.file {
+    border: none;
+    padding: 10px 5px;
+    border-radius: 10px;
+    color: #fff;
+    background: #1f1652;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+.file:hover {
+    color: #1f1652;
+    background: #fff;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.Update {
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: -10px;
+    text-align: center;
+    border-radius: 10px;
+    color: #fff;
+    background: #1f1652;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.Update:hover {
+    color: #1f1652;
+    background: #fff;
+    box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 600px){
+    
+.container_EditProfile {
+   display: flex;
+    width: 400px;
+    flex-direction: column;
+    height: 700px;
+    
+}
+
+
+
+.names_EditProfile {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+
+}
+
+.leftSide_EditProfile {
+    display: flex;
+  top: -70px;
+left: 150px;
+margin-bottom: -80px;
+
+justify-content: center;
+}
+
+.img_EditProfile {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    outline: 2px solid #1f1652;
+}
+
+.rightSide_EditProfile {
+  width: 300px;
+  left: -40px;
+}
+
+.rightSide_EditProfile h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-weight: 250;
+}
+
+.input_EditProfile {
+   width: 250px;
+}
+hr {
+    display: flex;
+    margin-bottom: 20px;
+    opacity: 0.3;
+
+}
+
+
+.input_EditPro2 {
+    width: 260px;
+   
+}
+.close {
+    cursor: pointer;
+    margin-top: -200px;
+    float: right;
+    margin-right: -60px;
+    color: #1f1652;
+}
+
+
+}
