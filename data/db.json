@@ -36,7 +36,6 @@
       "id": 3
     }
   ],
-  
   "Project": [
     {
       "title": "new Project",
@@ -64,6 +63,28 @@
       "image": "https://unsplash.com/photos/e616t35Vbeg",
       "Description": "The Portifolio of mine. This my work it prove who i am and that i can capable of. try me The Portifolio of mine. This my work it prove who i am and that i can capable of. try me",
       "date": "Thu Feb 23 2023",
+      "id": 4
+    }
+  ],
+  "Auth": [
+    {
+      "email": "muhedarius96@gmail.com",
+      "password": "Najudykid@22",
+      "id": 1
+    },
+    {
+      "email": {},
+      "password": "Najudykid@22",
+      "id": 2
+    },
+    {
+      "email": {},
+      "password": "Najudykid",
+      "id": 3
+    },
+    {
+      "email": {},
+      "password": "",
       "id": 4
     }
   ]
