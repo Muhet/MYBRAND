@@ -6,7 +6,7 @@ const creatcoment = async (e) => {
         email: comentForm.email.value,
         textarea: comentForm.textarea.value,
     }
-    await fetch("http://localhost:3000/Comments", {
+    await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Comments", {
         method: 'POST',
         body: JSON.stringify(OBDOC),
         headers: {
@@ -20,7 +20,7 @@ const creatcoment = async (e) => {
 
 
 const fetch_comment = async () => {
-    const response = await fetch("http://localhost:3000/Comments");
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Comments");
     const post = await response.json();
     const ClientContent = document.querySelector('#Client_comment');
     let temp = "";
@@ -56,7 +56,7 @@ const fetch_comment = async () => {
 fetch_comment();
 
 const deletecoment = async (article_id) => {
-    await fetch(`http://localhost:3000/Comments/${article_id}`, {
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Comments/${article_id}`, {
         method: "DELETE",
 
     });

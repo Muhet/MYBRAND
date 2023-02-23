@@ -7,7 +7,7 @@ const postBlog = async () => {
     const messageB = document.querySelector("#blogMessage").value;
     const image = document.querySelector("#file").value;
 
-    const response = await fetch("http://localhost:3000/Blogs", {
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const postBlog = async () => {
 
 const fetchBlog = async () => {
     const date = new Date().toJSON();
-    const response = await fetch("http://localhost:3000/Blogs");
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs");
     const post = await response.json();
     const BlogsContainer = document.querySelector("#Blogs");
     let templete = "";
@@ -71,7 +71,7 @@ const fetchBlog = async () => {
 /* FETCHING ON CLIENT SIDE */
 
 const fetch_clientBlog = async () => {
-    const response = await fetch("http://localhost:3000/Blogs");
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs");
     const post = await response.json();
     const BlogsContent = document.querySelector('#Client_Blogs');
     let temp = "";
@@ -102,7 +102,7 @@ fetch_clientBlog();
 const fetchRead = async () => {
     let myTemp="";
  const readMoreBlog = document.querySelector('#might')   
-const res = await fetch(`http://localhost:3000/Blogs`)
+const res = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs`)
 const post = await res.json();
 post.forEach((post)=>{
 
@@ -132,7 +132,7 @@ fetchRead();
 /* DELETE FUNCTION */
 
 const deleteBlog = async (article_id) => {
-    await fetch(`http://localhost:3000/Blogs/${article_id}`, {
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${article_id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -154,7 +154,7 @@ modelBox.style.display = "none";
 
 // fun to open model with content of selected article
 const OpenModel = async (article_id) => {
-    const response = await fetch(`http://localhost:3000/Blogs/${article_id}`);
+    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${article_id}`);
 
     const blog = await response.json();
     // show model box
@@ -178,7 +178,7 @@ const updatingPost = async () => {
         image: newForm.file.value,
     }
 
-    const response = await fetch(`http://localhost:3000/Blogs/${articleID}`, {
+    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${articleID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
