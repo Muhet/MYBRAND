@@ -1,57 +1,65 @@
 const comentForm = document.querySelector('#form');
+const creatcoment = async (e) => {
+    e.preventDefault();
+    const OBDOC = {
+        names: comentForm.names.value,
+        email: comentForm.email.value,
+        textarea: comentForm.textarea.value,
+    }
+    await fetch("http://localhost:3000/Comments", {
+        method: 'POST',
+        body: JSON.stringify(OBDOC),
+        headers: {
+            'Content-Type': 'application/json'
+        }
 
-const creatcoment = async (e) =>{
- e.preventDefault();
- const OBDOC = {
-   names: comentForm.names.value,
-    email: comentForm.email.value,
-    textarea: comentForm.textarea.value,
- }
-await fetch("http://localhost:3001/Comments",{
-method: 'POST',
-body: JSON.stringify(OBDOC),
-headers:{
-    'Content-Type':'application/json'
+    });
+    window.location.replace("./index.html")
 }
-
-});
-window.location.replace("./index.html")
-}
-comentForm.addEventListener('submit', creatcoment);
+/* comentForm.addEventListener('submit', creatcoment); */
 
 
 const fetch_comment = async () => {
-  const response = await fetch("http://localhost:3001/Comments");
-  const post = await response.json();
-  const ClientContent = document.querySelector('#Client_comment');
-  let temp = "";
-
-  post.forEach((blog) => {
-    temp += `
+    const response = await fetch("http://localhost:3000/Comments");
+    const post = await response.json();
+    const ClientContent = document.querySelector('#Client_comment');
+    let temp = "";
+    post.forEach((coment) => {
+        temp += `
       <div class="table_row">
       <div class="table_cell first_cell">
-          <p>${blog.id}</p>
+          <p>${coment.id}</p>
       </div>
       <div class="table_cell">
-          <p>${blog.names}</p>
+          <p>${coment.names}</p>
       </div>
       <div class="table_cell">
-          <p>${blog.email}</p>
+          <p>${coment.email}</p>
       </div>
       <div class="table_cell">
-          <p>${blog.textarea}</p>
+          <p>${coment.textarea.slice(0, 50)}</p>
       </div>
       <div class="table_cell last_cell">
           <div class="actionIcons">
               <a href="viewComent.html">
               <img src="../images/ViewsIcon.png" alt="" id="editIcon"/></a>
-              <img src="../images/Delete.png" alt="" id="deleteIcon"/>
+              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment(${coment.id});"/>
           </div>
       </div>
   </div>
           
           `
 
-  });
-  ClientContent.innerHTML = temp;
+    });
+    ClientContent.innerHTML = temp;
 }
+fetch_comment();
+
+const deletecoment = async (article_id) => {
+    await fetch(`http://localhost:3000/Comments/${article_id}`, {
+        method: "DELETE",
+
+    });
+
+}
+

@@ -78,9 +78,9 @@ const fetch_clientBlog = async () => {
 
     post.forEach((blog) => {
         temp += `
-       <div class="mainBlog">
+       
            <div class="blogCard">
-            <img src="${blog.image}" />
+            <img src="${blog.image}"  alt="" id="blogIMG"/>
                     <div class="sectionPar">
                         <h3>${blog.title}</h3>
                         <span id="blogparagraph">${blog.messageB.slice(0, 50)}
@@ -90,7 +90,7 @@ const fetch_clientBlog = async () => {
                         </div>
                     </div>
                     </div>
-                  </div>
+                 
             
             `
 

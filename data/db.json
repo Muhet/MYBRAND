@@ -1,24 +1,69 @@
 {
   "Blogs": [
     {
-      "title": "Computer",
-      "category": "Maintainance",
-      "messageB": "MY BLOGS ARE BASED ON INFORMATION TECHNOLOGY",
-      "image": "C:\\fakepath\\Abakurambere-nAbahanuzi-212x300.jpg",
-      "id": 2
-    },
-    {
       "title": "DARIUS",
       "category": "Maintainance",
       "messageB": "THIS IS A NEW ARTICAL YOU HAVE TO E=READ THIS ARTICLE BECAUSE IT IS IMPORTANT TO YOU",
-      "image": "C:\\fakepath\\Abakurambere-nAbahanuzi-212x300.jpg",
+      "image": "https://thumbs.dreamstime.com/z/concept-learning-programming-languages-labeled-coding-easy-concept-learning-programming-languages-labeled-coding-205386066.jpg",
+      "id": 1
+    },
+    {
+      "title": "Programming ",
+      "category": "Software Engeneering",
+      "messageB": "I hope this letter finds you well and happy. As I write this, I am filled with anticipation and excitement for all that you have accomplished and experienced since this moment. I trust that you have followed your dreams and taken risks to pursue the life you have always wanted.\n\nLooking back to the present, I hope that you remember the goals you set for yourself and the steps you took to achieve them. I hope that you have continued to learn and grow, both personally and professionally. I trust that you have developed new skills, made new connections, and discovered new passions along the way.\n\nI also hope that you have taken time for yourself and those you love.",
+      "image": "https://thumbs.dreamstime.com/z/software-web-development-programming-concept-languages-java-program-239627335.jpg",
+      "id": 2
+    },
+    {
+      "title": "New Technology In Rwanda",
+      "category": "Software Engeneering",
+      "messageB": "As you read this letter, I encourage you to reflect on the journey that has brought you to where you are today. Celebrate your successes and learn from your challenges. Remember the people who have supported you and the lessons you have learned from them.\n\nMost importantly, I hope that you are proud of the person you have become. You are strong, resilient, and capable of achieving great things. I have faith that you will continue to make a positive impact on the world and those around you.\n\nWith love and admiration,",
+      "image": "https://thumbs.dreamstime.com/z/concept-learning-programming-languages-labeled-coding-easy-concept-learning-programming-languages-labeled-coding-205386066.jpg",
+      "id": 3
+    }
+  ],
+  "Comments": [
+    {
+      "names": "Darius",
+      "email": "muheto@gmail.com",
+      "textarea": "skankncsdklnc;klsnvcksndcknsdlaks",
+      "id": 2
+    },
+    {
+      "names": "Darius MUHETO",
+      "email": "muhedarius96@gmail.com",
+      "textarea": "I hope this letter finds you well and happy. As I write this, I am filled with anticipation and excitement for all that you have accomplished and experienced since this moment. I trust that you have followed your dreams and taken risks to pursue the life you have always wanted.\n\nLooking back to the present, I hope that you remember the goals you set for yourself and the steps you took to achieve them. I hope that you have continued to learn and grow, both personally and professionally. I trust that you have developed new skills, made new connections, and discovered new passions along the way.\n\nI also hope that you have taken time for yourself and those you love.",
+      "id": 3
+    }
+  ],
+  
+  "Project": [
+    {
+      "title": "new Project",
+      "image": "https://thumbs.dreamstime.com/z/concept-learning-programming-languages-labeled-coding-easy-concept-learning-programming-languages-labeled-coding-205386066.jpg",
+      "Description": " One of my bigest archievement is that I built my first portfolio using ReactJS and tailwindcss from scratch.",
+      "date": "Thu Feb 23 2023",
+      "id": 1
+    },
+    {
+      "title": "My Portfolio",
+      "image": "https://thumbs.dreamstime.com/z/concept-learning-programming-languages-labeled-coding-easy-concept-learning-programming-languages-labeled-coding-205386066.jpg",
+      "Description": "The Portifolio of mine. This my work it prove who i am and that i can capable of. try me The Portifolio of mine. This my work it prove who i am and that i can capable of. try me",
+      "date": "Thu Feb 23 2023",
+      "id": 2
+    },
+    {
+      "title": "MY Brand",
+      "image": "https://unsplash.com/photos/e616t35Vbeg",
+      "Description": " One of my bigest archievement is that I built my first portfolio using ReactJS and tailwindcss from scratch.",
+      "date": "Thu Feb 23 2023",
       "id": 3
     },
     {
-      "title": "Welcome",
-      "category": "Maintainance",
-      "messageB": "THIS IS THE OTHER ONE THE YOU NEED TO READ AND UNDERSTAND IT CLEARLY",
-      "image": "D:\\Anndela\\images\\gad.jpg",
+      "title": "Online Self Branding",
+      "image": "https://unsplash.com/photos/e616t35Vbeg",
+      "Description": "The Portifolio of mine. This my work it prove who i am and that i can capable of. try me The Portifolio of mine. This my work it prove who i am and that i can capable of. try me",
+      "date": "Thu Feb 23 2023",
       "id": 4
     }
   ]
