@@ -41,8 +41,8 @@ const fetch_comment = async () => {
       </div>
       <div class="table_cell last_cell">
           <div class="actionIcons">
-              <a href="viewComent.html">
-              <img src="../images/ViewsIcon.png" alt="" id="editIcon"/></a>
+              <a href="viewComent.html/?id=${coment.id}">
+              <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
               <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment(${coment.id});"/>
           </div>
       </div>
@@ -62,4 +62,39 @@ const deletecoment = async (article_id) => {
     });
 
 }
-
+const viewComment = async(id)=>{
+    const response = await fetch(`http://localhost:3000/Blogs/?id=${id}` );
+    const res= await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Comments/?id=${id}`);
+    const Blog = await response.json();
+    const COM = await res.json();
+    const ViewContent = document.querySelector('#View_comment');
+    let temp = "";
+    Blog.forEach((coment) => {
+        COM.forEach((com)=>{
+           
+        temp += `
+        <h2 id="comentTitle">${coment.title}</h2>
+        <div class="cards_Main_comment">
+            <div class="left_Cards_comment" id="Cards_comment">
+                <img src="${coment.image}" alt="" id="webDesImage"/>
+            </div>
+            <div class="right_card_Comment" id="card_Comment">
+                <span class="Pargraph">
+                   ${coment.messageB}
+                </span>
+                <div class="Viewcomments">
+                    <p id="feedBack">${com.textarea}</p>
+                    <div class="comentetorIMG">
+                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">${com.names}</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+          
+          `
+        });
+    });
+    ViewContent.innerHTML = temp;
+}
+viewComment();

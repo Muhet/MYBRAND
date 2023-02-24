@@ -56,7 +56,7 @@ const viewProjects = async () => {
       <div class="table_cell">
           <div class="actionIcons last_cell">
               <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${item.id});");"  />
-              <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${item.id});"/>
+              <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteProject(${item.id});"/>
           </div>
       </div>
   </div>
@@ -90,3 +90,9 @@ const Projecto = async () => {
  container.innerHTML = Temp;
  }
  Projecto();
+
+ const deleteProject = async (project_id) => {
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Project/${project_id}`,{
+        method:"DELETE",
+    })
+ }

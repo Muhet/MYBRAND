@@ -10,16 +10,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&family=Poppins:wght@100;200&display=swap"
         rel="stylesheet">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Admin.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>My-Brand--Admin</title>
-
 </head>
-
 <body>
     <div class="container">
         <div class="sidebar active">
@@ -78,21 +76,34 @@
         </header>
         <main>
             <h1>Admin's Panel</h1>
-
-            <div class="form-group">
-                <form class="form">
-                    <input type="text" class="input" placeholder="Put title here...." id="title">
-                    <input type="url" class="input" placeholder="Put picture here...." id="file">
-                    <textarea class="textArea" type="text" cols="10" rows="10"
-                        placeholder="Insert your description here..." id="description"></textarea>
-                    <div class="new_btn_art">
-                        <button type="submit" class="new_art_btn" onclick="postProject();">Post</button>
-
+            <div class="table_box">
+                <div class="table_row table_head">
+                    <div class="table_cell first_cell">
+                        <p id="id">ID</p>
                     </div>
-                </form>
+                   <div class="table_cell">
+                        <p id="title">Tel. No</p>
+                    </div>
+                    <div class="table_cell">
+                        <p id="date">E-mails</p>
+                    </div>
+                    <div class="table_cell">
+                        <p id="date">Message</p>
+                    </div>
+                    <div class="table_cell">
+                        <p id="date">Date</p>
+                    </div>
+                    <div class="table_cell last_cell">
+                        <p id="action">Action</p>
+                    </div>
+                </div>
+                <div id="Message">
 
+                </div>
             </div>
-            <div class="action">
+          
+
+<div class="action">
                 <div class="edit_settings">
                     <img src="../images/img/MenuIcon.png" alt="menu" class="menu">
                 </div>
@@ -107,6 +118,8 @@
                     </ul>
                 </div>
             </div>
+            <tbody class="tbody" id="bookmarks-items">
+            </tbody>
         </main>
         <footer>
             <h3>CopyRight &copy;2023</h3>
@@ -121,7 +134,8 @@
 
 
     </script>
-    <script src="./JS/project.js"></script>
+
+    <script src="./JS/messages.js"></script>
 </body>
 
 </html>

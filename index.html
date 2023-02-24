@@ -27,6 +27,7 @@
 <body>
     <div class="containers">
         <div class="navbar ">
+            
             <img src="../images/Logo.png" alt="" class="logo" />
            
             <nav>
@@ -54,7 +55,10 @@
                 <img src="../images/MenuIcon.png" alt="menu" class="menu" />
             </labe>
         </div>
-        
+        <div class="subdiv">
+
+        </div>
+      
         <!-- HOME PAGE -->
         <div class="welcome_my_name">
             <h4><span id="myName">Hello!,</span> My Name is</h4>
@@ -204,33 +208,7 @@
             <div class="MyWorksCards">
 
                 <div class="works">
-                 
-                    
-
-                    <!-- <div class="firstCard">
-                        <div class="workNumber">
-                            <span id="workNumber">2</span>
-                        </div>
-                        <a href="https://dgbuyoz.netlify.app/">
-                            <img id="imageTwo" src="../images/fivethProject.JPG" alt="" />
-                        </a>
-                        <span class="PIC-descrption">
-                            One of my bigest archievement is that I built my first portfolio
-                            using ReactJS and tailwindcss from scratch.
-                        </span>
-                    </div>
-
-                    <div class="firstCard">
-                        <div class="workNumber">
-                            <span id="workNumber">3</span>
-                        </div>
-                        <img id="imageOne" src="../images/firstProject.JPG" alt="" />
-                        <span class="PIC-descrption">
-                            One of my bigest archievement is that I built my first portfolio
-                            using ReactJS and tailwindcss from scratch.
-                        </span>
-                    </div> -->
-
+                
                 </div>
             </div>
         </section>
@@ -258,14 +236,15 @@
             <div class="form">
                 <form class="myFform">
                     <div class="contactInput">
-                        <input type="text" placeholder=" Enter your name..." class="input" />
-                        <input type="text" placeholder="Enter your phone number..." class="input" />
-                        <input type="text" placeholder="Enter your email..." class="input" />
+                        
+                        <input type="text" placeholder="Enter your Names..." class="input" id="Names" />
+                        <input type="text" placeholder="Enter your phone number..." class="input" id="PNumber" />
+                        <input type="text" placeholder="Enter your email..." class="input" id="emails" />
 
                     </div>
-                    <textarea class="textArea" cols="30" rows="6" placeholder="Type your comment here!!..."></textarea>
+                    <textarea class="textArea" cols="30" rows="6" placeholder="Type your comment here!!..." id="message"></textarea>
                     <div class="save">
-                        <button type="button" class="save_btn">Save</button>
+                        <button type="button" class="save_btn" onclick="postMessage()">Send</button>
                     </div>
                 </form>
             </div>
@@ -319,6 +298,7 @@
     </div>
     <script src="./JS/blogs.js"></script>
     <script src="./JS/project.js"></script>
+    <script src="./JS/messages.js"></script>
 </body>
 
 </html>

@@ -11,6 +11,7 @@ html {
 body {
     background: #F9FAFB;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .containers {
@@ -37,6 +38,7 @@ body {
 
 .navbar {
     position: fixed;
+    border-bottom: 1.5px solid #a7a1cc ;
     top: 0;
     left: 0;
     width: 100%;
@@ -1009,7 +1011,10 @@ nav {
 
     /* My Blog */
   
-
+    .blogCard {
+      margin-left: -55px;
+      width: 300px;
+    }
     #blogIMG {
         max-width: 295px;
     }

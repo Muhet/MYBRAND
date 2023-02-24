@@ -7,7 +7,7 @@ const postBlog = async () => {
     const messageB = document.querySelector("#blogMessage").value;
     const image = document.querySelector("#file").value;
 
-    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs", {
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs ", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,11 +33,10 @@ const postBlog = async () => {
 
 const fetchBlog = async () => {
     const date = new Date().toJSON();
-    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs");
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs ");
     const post = await response.json();
     const BlogsContainer = document.querySelector("#Blogs");
     let templete = "";
-    let clientBlog = "";
     post.forEach((blog) => {
         templete += `
         <div class="table_row">
@@ -85,8 +84,8 @@ const fetch_clientBlog = async () => {
                         <h3>${blog.title}</h3>
                         <span id="blogparagraph">${blog.messageB.slice(0, 50)}
                         </span>
-                        <div class="ReadMore">
-                            <a href="ReadmoreBlog.html" id="blogReadMore" onClick="fetchRead(${blog.id});">Read More</a>
+                        <div class="ReadMore" >
+                            <a href="ReadmoreBlog.html?id=${blog.id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
                         </div>
                     </div>
                     </div>
@@ -98,42 +97,56 @@ const fetch_clientBlog = async () => {
     BlogsContent.innerHTML = temp;
 }
 fetch_clientBlog();
+
 /* READMORE ABOUT POST ON CLIENT SIDE */
-const fetchRead = async () => {
-    let myTemp="";
- const readMoreBlog = document.querySelector('#might')   
-const res = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs`)
-const post = await res.json();
-post.forEach((post)=>{
 
- myTemp += `
-        <div class="leftSide">
-        <h1>${post.title}</h1>
-        <img src="${post.image}" alt="" id="image"/>
+/* GETTING SINGLE BLOG BY IT'S ID */
+
+const id = new URLSearchParams(window.location.search).get('id');
+const container = document.querySelector('#might');
+
+
+const renderBlog = async() => {
+    const res = await fetch('https://nice-teal-chinchilla-suit.cyclic.app/Blogs/' +id);
+   const post = await res.json();
+    const template = `
+    <div class="leftSide">
+    <h1>${post.title}</h1>
+    <img src="${post.image}" alt="" id="image"/>
+</div>
+<div class="rightSide">
+    <spam id="paragraph">
+        ${post.messageB}
+    </spam>
+    <div class="social_media">
+       <img src="../images/BackICNBlue.png" alt="" class="backward"/>
+        <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
+       560k</span>
+        <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
+       
     </div>
-    <div class="rightSide">
-        <spam id="paragraph">
-            ${post.messageB}
-        </spam>
-        <div class="social_media">
-           <img src="../images/BackICNBlue.png" alt="" class="backward"/>
-            <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
-           560k</span>
-            <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
-           
-        </div>
-      </div>
-        `
-    })
-
- readMoreBlog.innerHTML = myTemp;
+  </div>
+    `
+    
+    container.innerHTML = template;
 }
-fetchRead();
+renderBlog();
+
+
 /* DELETE FUNCTION */
 
 const deleteBlog = async (article_id) => {
-    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${article_id}`, {
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs /${article_id}`, {
         method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+}
+const getById = async (article_id) => {
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs /${article_id}`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
@@ -154,7 +167,7 @@ modelBox.style.display = "none";
 
 // fun to open model with content of selected article
 const OpenModel = async (article_id) => {
-    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${article_id}`);
+    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs /${article_id}`);
 
     const blog = await response.json();
     // show model box
@@ -178,7 +191,7 @@ const updatingPost = async () => {
         image: newForm.file.value,
     }
 
-    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs/${articleID}`, {
+    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Blogs /${articleID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -195,6 +208,8 @@ if (newForm != null) {
         updatingPost();
     })
 }
+
+
 
 
 
