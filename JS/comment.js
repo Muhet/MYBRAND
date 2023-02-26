@@ -63,9 +63,8 @@ const deletecoment = async (article_id) => {
 
 }
 const viewComment = async(id)=>{
-    const response = await fetch(`http://localhost:3000/Blogs/?id=${id}` );
     const res= await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Comments/?id=${id}`);
-    const Blog = await response.json();
+    const Blog = await res.json();
     const COM = await res.json();
     const ViewContent = document.querySelector('#View_comment');
     let temp = "";

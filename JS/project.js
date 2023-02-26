@@ -7,7 +7,7 @@ const postProject = async () => {
     const image = document.querySelector("#file").value;
     const Description = document.querySelector("#description").value;
 
-    const response = await fetch("http://localhost:3000/Project", {
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Project", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const postProject = async () => {
 
 /*==========ON ADMIN SIDE========== */
 const viewProjects = async () => {
-   const response = await fetch("http://localhost:3000/Project");
+   const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Project");
     const Items = await response.json();
     const List_container = document.querySelector('#Projects');
     let myTemp = "";
@@ -67,7 +67,7 @@ List_container.innerHTML = myTemp;
 viewProjects();
 /*==========ON CLIENTS' SIDE========== */
 const Projecto = async () => {
-    const response = await fetch("http://localhost:3000/Project");
+    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Project");
      const proj = await response.json();
      const container = document.querySelector('.works');
      let Temp = "";
@@ -92,7 +92,7 @@ const Projecto = async () => {
  Projecto();
 
  const deleteProject = async (project_id) => {
-    await fetch(`http://localhost:3000/Project/${project_id}`,{
+    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Project/${project_id}`,{
         method:"DELETE",
     })
  }
