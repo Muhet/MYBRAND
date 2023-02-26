@@ -1012,8 +1012,9 @@ nav {
     /* My Blog */
   
     .blogCard {
-      margin-left: -55px;
+      margin-left: -60px;
       width: 300px;
+
     }
     #blogIMG {
         max-width: 295px;
