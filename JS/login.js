@@ -13,8 +13,10 @@ let Items = await res.json();
    Items.forEach(user=>{
   
     if(user.username == username.value && user.password == password.value){
+        alert("Login success!!  WELCOME")
        window.location.replace('Admin.html');
     }else{
+        alert("User Name or Password Incorrect")
         window.location.replace('index.html');
     }
    })
