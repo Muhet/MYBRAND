@@ -1,7 +1,7 @@
 
 const form = document.querySelector(".form_EditProfile");
 const updateProf = async (id) =>{
-const res = await fetch('https://nice-teal-chinchilla-suit.cyclic.app/profileUpdate/1')
+const res = await fetch('http://localhost:3000/profileUpdate/1')
 const profileItems=await res.json();
    form.last_name.value = profileItems.lastName;
    form.first_name.value = profileItems.firstName;
@@ -25,7 +25,7 @@ const updatingPost = async () => {
 
     }
 
-    const response = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/profileUpdate/1`, {
+    const response = await fetch(`http://localhost:3000/profileUpdate/1`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
