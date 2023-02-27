@@ -1,6 +1,6 @@
 
 const containerONE = document.querySelector("#likes_views")
-fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs")
+fetch("https://nice-teal-chinchilla-suit.cyclic.app/Project")
 .then(response => response.json())
   .then(data => {
    totCount = data.length;
