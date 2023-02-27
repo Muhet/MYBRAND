@@ -37,24 +37,24 @@
                             <div class="names_EditProfile">
                                 <span>
                                     <label for="name">Last Name</label><br/>
-                                    <input type="text" class="input_EditProfile" placeholder="last name here.." value="Darius">
+                                    <input type="text" class="input_EditProfile" placeholder="last name here.." id="last_name">
                                 </span>
                                 <span>
                                     <label for="name">First Name</label><br/>
-                                    <input type="text" class="input_EditProfile" placeholder="first name here.." value="Muheto">
+                                    <input type="text" class="input_EditProfile" placeholder="first name here.." id="first_name">
                                 </span>
                                
                             </div>
                             <label>Mobile Number</label><br/>
-                            <input type="number" class="input_EditPro2" placeholder="Mobile number" value="0786964660"><br/>
+                            <input type="number" class="input_EditPro2" placeholder="Mobile number" id="phone"><br/>
                             <label>Password</label><br/>
-                            <input type="password" class="input_EditPro2" placeholder="Passord" value="123456"><br/>
+                            <input type="password" class="input_EditPro2" placeholder="Passord" id="password"><br/>
                             <label>E_mail Address</label><br/>
-                            <input type="text" class="input_EditPro2" placeholder="Your Email Address" value="muhedarius96@gmail.com"><br/>
+                            <input type="text" class="input_EditPro2" placeholder="Your Email Address" id="email"><br/>
                             <label>Address Line 01</label><br/>
-                            <input type="text" class="input_EditPro2" placeholder="Address line number one" value="Kigali-Nyamirambo"><br/>
+                            <input type="text" class="input_EditPro2" placeholder="Address line number one" id="location"><br/>
 
-                            <button type="button" class="Update">Update</button>
+                            <button type="submit" onclick="updatingPost();" class="Update">Update</button>
                         </div>
                     </form>
                 </div>
@@ -66,5 +66,7 @@
             Mmenu.classList.toggle('newActive')
         }
     </script>
+    <script src="./JS/profileUpdate.js"></script>
+    <script src="./JS/blogs.js"></script>
 </body>
 </html>

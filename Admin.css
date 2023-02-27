@@ -682,6 +682,10 @@ main h2 {
     vertical-align: middle;
 
 }
+.table_row:hover {
+    background: whitesmoke;    
+
+}
 
 .actionIcons {
     display: flex;

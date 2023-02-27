@@ -19,22 +19,25 @@
             <img src="../images/Logo.png" alt="logo" class="my_logo"/>
         </div>
         <div class="loginForm">
-            <form class="form">
+            <form class="form" id="Form">
+                <div id="error"></div>
+                <div id="success"></div>
                 <label><span id="Admin">Admin's<br/> </span>Autantication</label>
                 <div class="avatar">
                     
                     <img src="../images/avatarTwo.png" alt="avatar" id="avatar"/>
                 </div>
-                <input type="text" placeholder="Enter Email or phone Number" class="input"/>
-                <input type="password" placeholder="Enter password" class="input"/>
+                <input type="text" placeholder="Enter Email or phone Number" class="input"  id="email" />
+                <input type="password" placeholder="Enter password" class="input"  id="password"/>
                 <span><li><a href="link">forgot password</a></li></span>
                 <hr>
                 <div class="btn">
-                    <a href="Admin.html" class="btn-btn" type="button" >Login</a>
-                    <a href="SignUp.html" type="button" class="btn-signup" >Sign Up</a>
+                    <button class="btn-btn">Login</button>
+                    <button class="btn-signup" >Sign Up</button>
                 </div>
             </form>
         </div>
     </div>
+    <script src="./JS/login.js"></script>
 </body>
 </html>

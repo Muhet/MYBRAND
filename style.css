@@ -11,6 +11,7 @@ html {
 body {
     background: #F9FAFB;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .containers {
@@ -37,6 +38,7 @@ body {
 
 .navbar {
     position: fixed;
+    border-bottom: 1.5px solid #a7a1cc ;
     top: 0;
     left: 0;
     width: 100%;
@@ -470,8 +472,9 @@ hr {
 
 .works {
     display: flex;
-    gap: 50px;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+   
 }
 
 .MyWorksCards {
@@ -480,9 +483,8 @@ hr {
     gap: 35px;
     justify-content: center;
 }
-.mainblog{
-    display: flex;
-}
+
+
 .contact {
     margin-top: -60px;
     background: #1F1652;
@@ -507,12 +509,18 @@ hr {
     font-size: 17px;
     outline: 1px solid lightgray;
     margin-right: 10px;
+    margin-left: 0px;
     padding: 10px 0;
 
+}
+.input::placeholder{
+    padding-left: 20px;
+    font-size: 14px;
 }
 
 .textArea::placeholder {
     text-transform: lowercase;
+   font-size: 15px;
 }
 
 .textArea {
@@ -521,7 +529,9 @@ hr {
     outline: none;
     border: none;
     font-size: 17px;
-    margin: 20px 53px 0 35px;
+    margin: auto;
+    margin-top: 10px;
+  
     outline: 1px solid lightgray;
 }
 
@@ -693,13 +703,17 @@ hr {
 }
 
 .blogCard {
-   max-width: 300px;
+    max-width: 300px;
     padding-bottom: 30px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.blogCard:hover{
+    transform: translateY(-3px);
+    transition-duration: .5s;
+    box-shadow: 2px 0 8px rgba(13, 11, 121, 0.404);
+}
 #blogparagraph {
     color: rgb(167, 166, 166);
     font-size: 15px;
@@ -709,13 +723,13 @@ hr {
     margin: 15px 0;
 }
 
-.mainBlog {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+#Client_Blogs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
     max-width: auto;
     margin: 0 100px 20px 100px;
     text-align: center;
-
 
 }
 
@@ -1004,18 +1018,12 @@ nav {
     }
 
     /* My Blog */
-    .mainBlog {
-        display: flex;
-        flex-direction: column;
-        margin: 0px 10px;
-        gap: 20px;
-    }
-
+  
     .blogCard {
-        margin: 0 20px;
-        max-width: 600px;
-    }
+      margin-left: -60px;
+      width: 300px;
 
+    }
     #blogIMG {
         max-width: 295px;
     }

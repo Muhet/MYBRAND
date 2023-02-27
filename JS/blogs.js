@@ -1,7 +1,7 @@
 /*........INSERT CONTENT.... */
 let articleID = "";
 const postBlog = async () => {
-
+    const date = new Date().toDateString();
     const title = document.querySelector("#title").value;
     const category = document.querySelector("#cat").value;
     const messageB = document.querySelector("#blogMessage").value;
@@ -17,6 +17,7 @@ const postBlog = async () => {
             category,
             messageB,
             image,
+            date,
         }),
     });
 
@@ -28,17 +29,18 @@ const postBlog = async () => {
     window.location.replace('./ArticleList.html');
 
 }
+/* ####################################### */
 
+/* ####################################### */
 /* DISPLAY TABLE CONTENT */
 
 const fetchBlog = async () => {
-    const date = new Date().toJSON();
+    
     const response = await fetch("http://localhost:3000/Blogs");
     const post = await response.json();
+
     const BlogsContainer = document.querySelector("#Blogs");
-    const BlogsCont = document.querySelector("#Client_Blogs");
     let templete = "";
-    let clientBlog = "";
     post.forEach((blog) => {
         templete += `
         <div class="table_row">
@@ -53,7 +55,7 @@ const fetchBlog = async () => {
                                 </div>
                                
                                 <div class="table_cell">
-                                    <p>${date}</p>
+                                    <p>${blog.date}</p>
                                 </div>
                                 <div class="table_cell">
                                     <div class="actionIcons last_cell">
@@ -79,19 +81,19 @@ const fetch_clientBlog = async () => {
 
     post.forEach((blog) => {
         temp += `
-       <div class="mainBlog">
+       
            <div class="blogCard">
-            <img src="${blog.image}" />
+            <img src="${blog.image}"  alt="" id="blogIMG"/>
                     <div class="sectionPar">
                         <h3>${blog.title}</h3>
                         <span id="blogparagraph">${blog.messageB.slice(0, 50)}
                         </span>
-                        <div class="ReadMore">
-                            <a href="ReadmoreBlog.html" id="blogReadMore" onClick="fetchRead(${blog.id});">Read More</a>
+                        <div class="ReadMore" >
+                            <a href="ReadmoreBlog.html?id=${blog.id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
                         </div>
                     </div>
                     </div>
-                  </div>
+                 
             
             `
 
@@ -99,47 +101,54 @@ const fetch_clientBlog = async () => {
     BlogsContent.innerHTML = temp;
 }
 fetch_clientBlog();
+
 /* READMORE ABOUT POST ON CLIENT SIDE */
-const fetchRead = async (article_id) => {
-    let myTemp="";
- const readMoreBlog = document.querySelector('#might')   
-const res = await fetch(`http://localhost:3000/Blogs/${article_id}`,{
- 
-});
-const post = await res.json();
-post.forEach((post)=>{
 
- myTemp += `
-        <div class="leftSide">
-        <h1>${post.title}</h1>
-        <img src="${post.image}" alt="" id="image"/>
+/* GETTING SINGLE BLOG BY IT'S ID */
+
+const id = new URLSearchParams(window.location.search).get('id');
+const container = document.querySelector('#might');
+const renderBlog = async () => {
+    const res = await fetch('http://localhost:3000/Blogs/'+id);
+    const post = await res.json();
+    const template = `
+    <div class="leftSide">
+    <h1>${post.title}</h1>
+    <img src="${post.image}" alt="" id="image"/>
+</div>
+<div class="rightSide">
+    <spam id="paragraph">
+        ${post.messageB}
+    </spam>
+    <div class="social_media">
+       <img src="../images/BackICNBlue.png" alt="" class="backward"/>
+        <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
+       560k</span>
+        <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
+       
     </div>
-    <div class="rightSide">
-        <spam id="paragraph">
-            ${post.messageB}
-        </spam>
-        <div class="social_media">
-           <img src="../images/BackICNBlue.png" alt="" class="backward"/>
-            <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
-           560k</span>
-            <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
-           
-        </div>
-      </div>
-        `
-    })
+  </div>
+    `
 
-
-
- 
-    readMoreBlog.innerHTML = myTemp;
+    container.innerHTML = template;
 }
-fetchRead();
+renderBlog();
+
+
 /* DELETE FUNCTION */
 
 const deleteBlog = async (article_id) => {
     await fetch(`http://localhost:3000/Blogs/${article_id}`, {
         method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+
+}
+const getById = async (article_id) => {
+    await fetch(`http://localhost:3000/Blogs/${article_id}`, {
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
         },
@@ -201,6 +210,8 @@ if (newForm != null) {
         updatingPost();
     })
 }
+
+
 
 
 
