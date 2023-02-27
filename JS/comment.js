@@ -16,7 +16,7 @@ const creatcoment = async (e) => {
     });
     window.location.replace("./index.html")
 }
-/* comentForm.addEventListener('submit', creatcoment); */
+comentForm && comentForm.addEventListener('submit', creatcoment);
 
 
 const fetch_comment = async () => {
