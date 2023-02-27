@@ -512,9 +512,14 @@ hr {
     padding: 10px 0;
 
 }
+.input::placeholder{
+    padding-left: 20px;
+    font-size: 14px;
+}
 
 .textArea::placeholder {
     text-transform: lowercase;
+   font-size: 15px;
 }
 
 .textArea {
