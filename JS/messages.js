@@ -76,5 +76,8 @@ ViewMessages();
 const deleteMessage = async (id)=>{
     await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/messages/${id}`,{
         method:'DELETE',
+        headers: {
+            "Content-Type": "application/json",
+        },
     })
 }

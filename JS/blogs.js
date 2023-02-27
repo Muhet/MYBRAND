@@ -109,7 +109,7 @@ fetch_clientBlog();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderBlog = async () => {
-    const res = await fetch('https://nice-teal-chinchilla-suit.cyclic.app/Blogs/' + id);
+    const res = await fetch('https://nice-teal-chinchilla-suit.cyclic.app/Blogs/'+id);
     const post = await res.json();
     const template = `
     <div class="leftSide">

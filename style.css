@@ -509,6 +509,7 @@ hr {
     font-size: 17px;
     outline: 1px solid lightgray;
     margin-right: 10px;
+    margin-left: 0px;
     padding: 10px 0;
 
 }
@@ -528,7 +529,9 @@ hr {
     outline: none;
     border: none;
     font-size: 17px;
-    margin: 20px 53px 0 35px;
+    margin: auto;
+    margin-top: 10px;
+  
     outline: 1px solid lightgray;
 }
 
