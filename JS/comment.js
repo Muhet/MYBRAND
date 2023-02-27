@@ -6,7 +6,7 @@ const creatcoment = async (e) => {
         email: comentForm.email.value,
         textarea: comentForm.textarea.value,
     }
-    await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Comments", {
+    await fetch("http://localhost:3000/Comments", {
         method: 'POST',
         body: JSON.stringify(OBDOC),
         headers: {
@@ -20,7 +20,7 @@ comentForm && comentForm.addEventListener('submit', creatcoment);
 
 
 const fetch_comment = async () => {
-    const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/Comments");
+    const response = await fetch("http://localhost:3000/Comments");
     const post = await response.json();
     const ClientContent = document.querySelector('#Client_comment');
     let temp = "";
@@ -56,14 +56,14 @@ const fetch_comment = async () => {
 fetch_comment();
 
 const deletecoment = async (article_id) => {
-    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Comments/${article_id}`, {
+    await fetch(`http://localhost:3000/Comments/${article_id}`, {
         method: "DELETE",
 
     });
 
 }
 const viewComment = async(id)=>{
-    const res= await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/Comments/?id=${id}`);
+    const res= await fetch(`http://localhost:3000/Comments/?id=${id}`);
     const Blog = await res.json();
     const COM = await res.json();
     const ViewContent = document.querySelector('#View_comment');

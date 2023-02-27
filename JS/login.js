@@ -7,7 +7,7 @@ let errMessage="";
 
 const login = async (e)=>{
    e.preventDefault();
-const res = await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/profileUpdate`);
+const res = await fetch(`http://localhost:3000/profileUpdate`);
 let Items = await res.json();
 
    Items.forEach(user=>{

@@ -7,7 +7,7 @@ const postMessage = async () => {
     const Emails = document.querySelector("#emails").value;
     const T_Message = document.querySelector("#message").value;
 
-    await fetch("https://nice-teal-chinchilla-suit.cyclic.app/messages", {
+    await fetch("http://localhost:3000/messages", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const postMessage = async () => {
 
 /*==========ON ADMIN SIDE========== */
 const ViewMessages = async () => {
-   const response = await fetch("https://nice-teal-chinchilla-suit.cyclic.app/messages");
+   const response = await fetch("http://localhost:3000/messages");
     const Items = await response.json();
     const List_container = document.querySelector('#Message');
     let myTemp = "";
@@ -74,7 +74,7 @@ ViewMessages();
 
 
 const deleteMessage = async (id)=>{
-    await fetch(`https://nice-teal-chinchilla-suit.cyclic.app/messages/${id}`,{
+    await fetch(`http://localhost:3000/messages/${id}`,{
         method:'DELETE',
         headers: {
             "Content-Type": "application/json",
