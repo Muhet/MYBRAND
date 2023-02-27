@@ -1,6 +1,6 @@
 
 const containerONE = document.querySelector("#likes_views")
-fetch("http://localhost:3000/Blogs")
+fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs")
 .then(response => response.json())
   .then(data => {
    totCount = data.length;
@@ -16,7 +16,7 @@ fetch("http://localhost:3000/Blogs")
   })
   .catch(error => console.error(error));
 const containerTWO = document.querySelector("#comment_views")
-fetch("http://localhost:3000/Comments")
+fetch("https://nice-teal-chinchilla-suit.cyclic.app/Comments")
 .then(response => response.json())
   .then(data => {
    totCount = data.length;
@@ -32,7 +32,7 @@ fetch("http://localhost:3000/Comments")
   })
   .catch(error => console.error(error));
 const containerTHREE = document.querySelector("#messaget_views")
-fetch("http://localhost:3000/messages")
+fetch("https://nice-teal-chinchilla-suit.cyclic.app/messages")
 .then(response => response.json())
   .then(data => {
    totCount = data.length;
@@ -48,7 +48,7 @@ fetch("http://localhost:3000/messages")
   })
   .catch(error => console.error(error));
 const containerFOUR = document.querySelector("#Blog_views")
-fetch("http://localhost:3000/Blogs")
+fetch("https://nice-teal-chinchilla-suit.cyclic.app/Blogs")
 .then(response => response.json())
   .then(data => {
    totCount = data.length;
