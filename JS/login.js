@@ -10,7 +10,7 @@ const login = async (event)=>{
    const email = document.querySelector("#email").value;
    const password = document.querySelector("#password").value;
 
-   axios.post('http://localhost:3000/api/login', { email, password })
+   axios.post('https://excited-visor-hen.cyclic.appapi/login', { email, password })
       .then(response => {
          // Store the token in a browser cookie or local storage for future requests
          document.cookie = `token=${response.data.token}; HttpOnly`;
