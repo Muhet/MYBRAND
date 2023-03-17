@@ -1,4 +1,4 @@
-
+ import toastr from "toastr";
 /*........BLOG CONTENTS.... */
 let articleID = "";
 
@@ -25,11 +25,11 @@ Form.addEventListener('submit', (e) => {
             return response.json()
         }).then((data) => {
             console.log(data)
-           if(data.ok){
-            alert(data.message)
-           }else{
-            alert(data.errors.name)
-           }
+            if (data.ok) {
+                alert(data.message)
+            } else {
+                alert(data.errors.name)
+            }
         }).catch(error => alert(error))
 
 });
@@ -64,7 +64,7 @@ const fetchBlog = async () => {
                                 </div>
                                 <div class="table_cell">
                                     <div class="actionIcons last_cell">
-                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel('${blog._id}');");"  />
+                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="openModel('${blog._id}');"  />
                                         <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog('${blog._id}');"/>
                                     </div>
                                 </div>
@@ -81,13 +81,13 @@ fetchBlog();
 
 const fetch_clientBlog = async () => {
     const BlogsContent = document.querySelector('#Client_Blogs');
-   fetch("https://excited-visor-hen.cyclic.app/api/blogs")
-    .then((response) => response.json())
+    fetch("https://excited-visor-hen.cyclic.app/api/blogs")
+        .then((response) => response.json())
         .then((blogs) => {
-         let temp = "";
-            blogs.data.forEach((blog)=>{
-                
-               temp += `
+            let temp = "";
+            blogs.data.forEach((blog) => {
+
+                temp += `
                  <div class="blogCard">
                  <img src="${blog.image}"  alt="" id="blogIMG"/>
                          <div class="sectionPar">
@@ -101,10 +101,10 @@ const fetch_clientBlog = async () => {
                          </div>
                   `
             })
-  
+
             BlogsContent.innerHTML = temp;
-    });
- 
+        });
+
 }
 fetch_clientBlog();
 
@@ -118,7 +118,7 @@ const renderBlog = async () => {
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`);
     const post = await res.json();
     console.log(post._id)
-              
+
     const template = `
     <div class="leftSide">
     <h1>${post.title}</h1>
@@ -140,25 +140,25 @@ const renderBlog = async () => {
 
     container.innerHTML = template;
 }
- renderBlog();
- 
+renderBlog();
+
 
 /* DELETE FUNCTION */
 
 const deleteBlog = async (blogId) => {
-fetch(`https://excited-visor-hen.cyclic.app/api/blog/delete/${blogId}`, {
-      method: "DELETE",
+    fetch(`https://excited-visor-hen.cyclic.app/api/blog/delete/${blogId}`, {
+        method: "DELETE",
     })
-    .then((response) => response.json())
-    .then((data) => {
-        // functionalities of delete
-        location.reload();
- })
-    .catch((err) => {
-        alert(err)
-    });
+        .then((response) => response.json())
+        .then((data) => {
+            // functionalities of delete
+            location.reload();
+        })
+        .catch((err) => {
+            alert(err)
+        });
 
-  };
+};
 
 
 const getById = async (article_id) => {
@@ -168,7 +168,7 @@ const getById = async (article_id) => {
             "Content-Type": "application/json",
         },
     });
-
+   alert("deleted successfully")
 }
 
 /* UPDATE FUNCTION */
@@ -183,50 +183,50 @@ modelBox.style.display = "none";
 
 
 // fun to open model with content of selected article
-const OpenModel = async (article_id) => {
-fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${article_id}`)
-.then((response) => response.json())
-.then((res)=>{
-   
-    // show model box
+const openModel = async (blogId) => {
     modelBox.style.display = "block";
-    // set input values from server
-    newForm.title.value = blog.title;
-    newForm.cat.value = blog.category;
-    newForm.message.value = blog.messageB;
-    newForm.file.value = blog.image;
-    articleID = blog.id;
-})
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}`);
+    const blog = await response.json();
+   
 
-    
+    newForm.title.value = blog.data.title;
+    newForm.cat.value = blog.data.category;
+    newForm.file.value = blog.data.image;
+    newForm.message.value = blog.data.description;
+    newForm.id.value=blog.data._id;
 
 }
-
-
-const updatingPost = async () => {
-
-    const post = {
-        title: newForm.title.value,
-        category: newForm.cat.value,
-        messageB: newForm.message.value,
-        image: newForm.file.value,
+const updateBlog = async () => {
+    const form = document.getElementById("newForm");
+    const title = form.elements.title.value;
+    const category = form.elements.cat.value;
+    const image = form.elements.file.value;
+    const message = form.elements.message.value;
+    const articleID = form.elements.id.value;
+ 
+    try {
+        const response = await fetch(`http://localhost:3000/blog/update/${articleID}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title,
+                category,
+                image,
+                message,
+            }),
+        });
+       
+        if (response.ok) {
+            form.reset();
+            toastr.success("Your blog has been updated successfully");
+        } else {
+            const error = await response.json();
+            toastr.info(`Failed to update blog: ${error.message}`);
+        }
+    } catch (error) {
+        toastr.error("Failed to update blog. Please try again later.");
     }
-
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${articleID}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(post),
-
-    });
-    alert("Your blog has been Updated successfully!!!!")
-}
-
-if (newForm != null) {
-    newForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        updatingPost();
-    })
 }
 
