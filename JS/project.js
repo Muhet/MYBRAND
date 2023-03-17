@@ -60,7 +60,7 @@ const viewProjects = async () => {
 <div class="table_cell">
 <div class="actionIcons last_cell">
     <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${work._id});");"  />
-    <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${work._id});"/>
+    <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteproject('${work._id}');"/>
 </div>
 </div>
        </div>

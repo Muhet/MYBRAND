@@ -64,7 +64,7 @@ const fetchBlog = async () => {
                                 </div>
                                 <div class="table_cell">
                                     <div class="actionIcons last_cell">
-                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${blog._id.toString()});");"  />
+                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel('${blog._id}');");"  />
                                         <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog('${blog._id}');"/>
                                     </div>
                                 </div>
@@ -153,10 +153,7 @@ fetch(`https://excited-visor-hen.cyclic.app/api/blog/delete/${blogId}`, {
     .then((data) => {
         // functionalities of delete
         location.reload();
-
-       
-
-    })
+ })
     .catch((err) => {
         alert(err)
     });
@@ -187,9 +184,10 @@ modelBox.style.display = "none";
 
 // fun to open model with content of selected article
 const OpenModel = async (article_id) => {
-fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${article_id}`);
-
-    const blog = await response.json();
+fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${article_id}`)
+.then((response) => response.json())
+.then((res)=>{
+   
     // show model box
     modelBox.style.display = "block";
     // set input values from server
@@ -198,6 +196,9 @@ fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${article_id}`);
     newForm.message.value = blog.messageB;
     newForm.file.value = blog.image;
     articleID = blog.id;
+})
+
+    
 
 }
 
