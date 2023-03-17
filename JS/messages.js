@@ -1,38 +1,44 @@
-const url = "https://excited-visor-hen.cyclic.app/api";
+const URL = "https://excited-visor-hen.cyclic.app/api";
 
-const createMessage = async () =>{
-const names = document.querySelector('#Names').value;
-const phone = document.querySelector('#PNumber').value;
-const email = document.querySelector('#emails').value;
-const message = document.querySelector('#message').value;
-try {
-    const response = await fetch(`http://localhost:3000/api/message/create`,{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json",
-        },
-        body: JSON.stringify({
-            names,
-            phone,
-            email,
-            message,
-        }),
+// post blog by using form after reload and clear form and give feed back if successfull added
+const createMessage = async () => {
+  const postBlogForm = document.querySelector(".clientForm");
+  const names = postBlogForm.elements.Names.value;
+  const phone = postBlogForm.elements.PNumber.value;
+  const email = postBlogForm.elements.emails.value;
+  const message = postBlogForm.elements.message.value;
+  
+
+  try {
+    const response = await fetch(`${URL}/message/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        names, 
+        phone,
+        email,
+        message,
+      }),
     });
 
-    if(response.ok){
-        alert("Message saccessfuly sent!!")
-        document.querySelector('Names').value="";
-        document.querySelector('PNumber').value="";
-        document.querySelector('emails').value="";
-        document.querySelector('message').value="";
-
-    }else{
-        alert("Message failed!!")
+    if (response.ok) {
+      postBlogForm.reset();
+      alert("Your message has been sent!!");
+      renderBlogs();
+    } else {
+      const error = await response.json();
+      alert(`Failed to sent message: ${error.message}`);
     }
-} catch (error) {
-    alert('Server error, Please try again later!!')
-}
-}
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send message. Please try again later.");
+  }
+};
+
+
+
 createMessage();
 /* RETRIEVING DATA FROM DATABASE */
 
@@ -44,6 +50,7 @@ const ViewMessages = async () => {
     await fetch(`http://localhost:3000/api/messages`)
         .then((response) => response.json())
         .then((messages) => {
+            console.log(messages.data.length)
             let myTemp = "";
             messages.data.forEach((message) => {
                myTemp += `
@@ -64,7 +71,7 @@ const ViewMessages = async () => {
                 <div class="actionIcons last_cell">
                 <a href="start.html?id=">
                 <img src="../images/ViewsIcon.png" alt="" id="editIcon"" onclick="renderMess()"/></a>
-                    <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteMessage();"/>
+                    <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteMessage('${message._id}');"/>
                 </div>
             </div>
         </div>
@@ -137,7 +144,7 @@ ViewallMessages();
 
 
 const deleteMessage = async (id) => {
-    fetch(`${url}message/delete/${id}`, {
+    fetch(`https://excited-visor-hen.cyclic.app/api/message/delete/${id}`, {
         method: "DELETE",
     })
         .then((response) => response.json())

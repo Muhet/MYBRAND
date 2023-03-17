@@ -19,39 +19,43 @@ const creatcoment = async (e) => {
 comentForm && comentForm.addEventListener('submit', creatcoment);
 
 
-const fetch_comment = async () => {
-    const response = await fetch("http://localhost:3000/Comments");
-    const post = await response.json();
+const fetch_comment = async (id) => {
     const ClientContent = document.querySelector('#Client_comment');
-    let temp = "";
-    post.forEach((coment) => {
-        temp += `
-      <div class="table_row">
+    const response = await fetch(`http://localhost:3000/api/comments`)
+    .then((response) => response.json())
+    .then((comments) => {
+        let temp = "";
+        comments.data.forEach((comment) => {
+            console.log(comment)
+            temp += `
+     <div class="table_row">
       <div class="table_cell first_cell">
-          <p>${coment.id}</p>
+          <p>${comment._id.slice(4, 7)}</p>
       </div>
       <div class="table_cell">
-          <p>${coment.names}</p>
+          <p>${comment.commentBody.slice(0, 30)}</p>
       </div>
       <div class="table_cell">
-          <p>${coment.email}</p>
-      </div>
-      <div class="table_cell">
-          <p>${coment.textarea.slice(0, 50)}</p>
-      </div>
+      <p>${comment.blog.slice(0, 4)}</p>
+  </div>
+  <div class="table_cell">
+  <p>${comment.createdAt.slice(0, 10)}</p>
+</div>
       <div class="table_cell last_cell">
           <div class="actionIcons">
-              <a href="viewComent.html/?id=${coment.id}">
+              <a href="viewComent.html/?id=${comment._id}">
               <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
-              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment(${coment.id});"/>
+              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment(${comment._id});"/>
           </div>
       </div>
   </div>
           
           `
-
+        })
+        
+        ClientContent.innerHTML = temp;
     });
-    ClientContent.innerHTML = temp;
+    
 }
 fetch_comment();
 
@@ -62,16 +66,16 @@ const deletecoment = async (article_id) => {
     });
 
 }
-const viewComment = async(id)=>{
-    const res= await fetch(`http://localhost:3000/Comments/?id=${id}`);
+const viewComment = async (id) => {
+    const res = await fetch(`http://localhost:3000/Comments/?id=${id}`);
     const Blog = await res.json();
     const COM = await res.json();
     const ViewContent = document.querySelector('#View_comment');
     let temp = "";
     Blog.forEach((coment) => {
-        COM.forEach((com)=>{
-           
-        temp += `
+        COM.forEach((com) => {
+
+            temp += `
         <h2 id="comentTitle">${coment.title}</h2>
         <div class="cards_Main_comment">
             <div class="left_Cards_comment" id="Cards_comment">
