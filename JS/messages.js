@@ -47,7 +47,7 @@ createMessage();
 /*==========ON ADMIN SIDE========== */
 const ViewMessages = async () => {
     const List_container = document.getElementById('Message');
-    await fetch(`http://localhost:3000/api/messages`)
+    await fetch(`${URL}/messages`)
         .then((response) => response.json())
         .then((messages) => {
             console.log(messages.data.length)
@@ -88,7 +88,7 @@ ViewMessages();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderMess = async () => {
-    const response = await fetch('http://localhost:3000/messages/' + id);
+    const response = await fetch(`${URL}/messages/` + id);
     const item = await response.json();
 
     template = `
@@ -113,7 +113,7 @@ const renderMess = async () => {
 renderMess();
 
 const ViewallMessages = async () => {
-    const res = await fetch("http://localhost:3000/messages");
+    const res = await fetch(`${URL}/messages`);
     const newMes = await res.json();
     const containerMess = document.querySelector(".messageContainer");
     let temp = "";
@@ -144,7 +144,7 @@ ViewallMessages();
 
 
 const deleteMessage = async (id) => {
-    fetch(`https://excited-visor-hen.cyclic.app/api/message/delete/${id}`, {
+    fetch(`${URL}/message/delete/${id}`, {
         method: "DELETE",
     })
         .then((response) => response.json())

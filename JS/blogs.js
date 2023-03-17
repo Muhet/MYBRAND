@@ -205,7 +205,7 @@ const updateBlog = async () => {
     const articleID = form.elements.id.value;
 
     try {
-        const response = await fetch(`http://localhost:3000/blog/update/${articleID}`, {
+        const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${articleID}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
