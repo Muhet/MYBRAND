@@ -1,4 +1,4 @@
- import toastr from "toastr";
+
 /*........BLOG CONTENTS.... */
 let articleID = "";
 
@@ -168,7 +168,7 @@ const getById = async (article_id) => {
             "Content-Type": "application/json",
         },
     });
-   alert("deleted successfully")
+    alert("deleted successfully")
 }
 
 /* UPDATE FUNCTION */
@@ -187,13 +187,13 @@ const openModel = async (blogId) => {
     modelBox.style.display = "block";
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}`);
     const blog = await response.json();
-   
+
 
     newForm.title.value = blog.data.title;
     newForm.cat.value = blog.data.category;
     newForm.file.value = blog.data.image;
     newForm.message.value = blog.data.description;
-    newForm.id.value=blog.data._id;
+    newForm.id.value = blog.data._id;
 
 }
 const updateBlog = async () => {
@@ -203,7 +203,7 @@ const updateBlog = async () => {
     const image = form.elements.file.value;
     const message = form.elements.message.value;
     const articleID = form.elements.id.value;
- 
+
     try {
         const response = await fetch(`http://localhost:3000/blog/update/${articleID}`, {
             method: "PUT",
@@ -217,7 +217,7 @@ const updateBlog = async () => {
                 message,
             }),
         });
-       
+
         if (response.ok) {
             form.reset();
             toastr.success("Your blog has been updated successfully");
