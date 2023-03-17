@@ -50,7 +50,7 @@ const fetchBlog = async () => {
                 template += `
         <div class="table_row">
                                 <div class="table_cell first_cell">
-                                    <p>${blog._id}</p>
+                                    <p>${blog._id.toString()}</p>
                                 </div>
                                 <div class="table_cell">
                                     <p>${blog.category}</p>
@@ -65,7 +65,7 @@ const fetchBlog = async () => {
                                 <div class="table_cell">
                                     <div class="actionIcons last_cell">
                                         <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${blog._id.toString()});");"  />
-                                        <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${blog._id.toString()});"/>
+                                        <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog('${blog._id}');"/>
                                     </div>
                                 </div>
                             </div>
@@ -84,8 +84,7 @@ const fetch_clientBlog = async () => {
    fetch("https://excited-visor-hen.cyclic.app/api/blogs")
     .then((response) => response.json())
         .then((blogs) => {
-            console.log(blogs)
-          let temp = "";
+         let temp = "";
             blogs.data.forEach((blog)=>{
                 
                temp += `
@@ -147,10 +146,21 @@ const renderBlog = async () => {
 /* DELETE FUNCTION */
 
 const deleteBlog = async (blogId) => {
-    const response = await fetch(`http://localhost:3000/blog/delete/${blogId}`, {
+fetch(`https://excited-visor-hen.cyclic.app/api/blog/delete/${blogId}`, {
       method: "DELETE",
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        // functionalities of delete
+        location.reload();
+
+       
+
+    })
+    .catch((err) => {
+        alert(err)
     });
-    fetchBlog();
+
   };
 
 

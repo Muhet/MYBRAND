@@ -119,7 +119,7 @@ const deleteproject = async (blogId) => {
     } catch (error) {
       alert("OOPS there is problem try again later!!");
     }
-  };
+  }
   
 
 
