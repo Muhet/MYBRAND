@@ -207,7 +207,7 @@
 
             <div class="MyWorksCards">
 
-                <div class="works">
+                <div class="works" id="injectedCard">
                 
                 </div>
             </div>
@@ -222,6 +222,7 @@
         <section id="Blog" class="blog">
 
          <div id="Client_Blogs">
+            
                 <!-- injected codes from Java script -->
             </div>
 
@@ -244,7 +245,7 @@
                     </div>
                     <textarea class="textArea" cols="30" rows="6" placeholder="Type your comment here!!..." id="message"></textarea>
                     <div class="save">
-                        <button type="button" class="save_btn" onclick="postMessage();">Send</button>
+                        <button type="submit" class="save_btn" onclick="postmessage();">Send</button>
                     </div>
                 </form>
             </div>
@@ -296,9 +297,10 @@
             </footer>
         </section>
     </div>
-    <script src="./JS/blogs.js"></script>
     <script src="./JS/project.js"></script>
-    <script src="./JS/messages.js"></script>
+    <script src="./JS/blogs.js"></script>
+   <script src="./JS/messages.js"></script>
+ 
 </body>
 
 </html>

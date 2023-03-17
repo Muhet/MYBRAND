@@ -1,98 +1,126 @@
 
-/* INSERTING DATA INTO DATABASE */
 
+const url = "https://excited-visor-hen.cyclic.app/api/"
 const postProject = async () => {
+    const ProjectForm = document.querySelector("#form");
     let date = new Date().toDateString();
     const title = document.querySelector("#title").value;
     const image = document.querySelector("#file").value;
-    const Description = document.querySelector("#description").value;
+    const description = document.querySelector("#description").value;
 
-    const response = await fetch("http://localhost:3000/Project", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            title,
-            image,
-            Description,
-            date,
-        }),
-    });
-
-    document.querySelector("#title").value = "";
-    document.querySelector("#file").value = "";
-    document.querySelector("#description").value = "";
-
-    alert("Your blog has been added successfully")
-    window.location.replace('./ArticleList.html');
+    try {
+        const res = await fetch(`${url}/project/create`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify({
+                title,
+                image,
+                description,
+            }),
+        });
+        if(response.ok){
+            ProjectForm.reset();
+            alert("Your project has been saved successfully!!");
+        }
+        alert("Something is wrong your project is not saved!!!")
+    } catch (error) {
+        alert("OOPS there is problem try again later!!");
+    }
 
 }
+
 
 /* RETRIEVING DATA FROM DATABASE */
 
 /*==========ON ADMIN SIDE========== */
 const viewProjects = async () => {
-   const response = await fetch("http://localhost:3000/Project");
-    const Items = await response.json();
-    const List_container = document.querySelector('#Projects');
-    let myTemp = "";
-    Items.forEach((item) => {
-      myTemp +=`
-      <div class="table_row">
-      <div class="table_cell first_cell">
-          <p>${item.id}</p>
+    const List_container = document.querySelector('#ProjectList');
+
+    fetch("https://excited-visor-hen.cyclic.app/api/project")
+        .then((res) => res.json())
+        .then((works) => {
+            let myTemp = "";
+            works.data.forEach((work) => {
+               myTemp += `
+       <div class="table_row">
+       <div class="table_cell first_cell">
+       <p>${work._id.slice(4, 7)}</p>
+   </div>
+   <div class="table_cell">
+      <p>${work.title}</p>
       </div>
       <div class="table_cell">
-          <p>${item.title}</p>
-      </div>
-      <div class="table_cell">
-          <p>${item.Description.slice(0,50)}</p>
-      </div>
-     
-      <div class="table_cell">
-          <p>${item.date}</p>
-      </div>
-      <div class="table_cell">
-          <div class="actionIcons last_cell">
-              <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${item.id});");"  />
-              <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteProject(${item.id});"/>
-          </div>
-      </div>
+      <p>${work.description.slice(0, 20)}</p>
   </div>
-  ` 
-});
-List_container.innerHTML = myTemp;
+  <div class="table_cell">
+  <p>${work.createdAt}</p>
+</div>
+<div class="table_cell">
+<div class="actionIcons last_cell">
+    <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${work._id});");"  />
+    <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${work._id});"/>
+</div>
+</div>
+       </div>
+       `
+            })
+            List_container.innerHTML = myTemp;
+        })
+
 }
 viewProjects();
 /*==========ON CLIENTS' SIDE========== */
-const Projecto = async () => {
-    const response = await fetch("http://localhost:3000/Project");
-     const proj = await response.json();
-     const container = document.querySelector('.works');
-     let Temp = "";
-     proj.forEach((pro) => {
+const fetch_clientproject = async () => {
+    const ProjectsContent = document.querySelector('#injectedCard');
+   fetch(`${url}/project`)
+        .then((response) => response.json())
+        .then((projects) => {
+           let Temp = "";
+            projects.data.forEach((pro) => {
 
-       Temp +=`
-       <div class="firstCard">
-       <div class="workNumber">
-           <span id="workNumber">${pro.id}</span>
-       </div>
-       <a href="https://dgbuyoz.netlify.app/">
-           <img id="imageTwo" src="${pro.image}" alt="" />
-       </a>
-       <span class="PIC-descrption">
-          ${pro.Description}
-       </span>
-   </div>
-   ` 
- });
- container.innerHTML = Temp;
- }
- Projecto();
+                Temp += `
+              <div class="firstCard">
+              <div class="workNumber">
+                  <span id="workNumber">${pro._id.slice(5, 6)}</span>
+              </div>
+              <a href="https://dgbuyoz.netlify.app/">
+                  <img id="imageTwo" src="${pro.image}" alt="" />
+              </a>
+              <span class="PIC-descrption">
+                 ${pro.description}
+              </span>
+          </div>
+          `
+            });
+            ProjectsContent.innerHTML = Temp;
+        });
+}
+fetch_clientproject();
 
- const deleteProject = async (project_id) => {
-    await fetch(`http://localhost:3000/Project/${project_id}`,{
-        method:"DELETE",
-    })
- }
+
+// delete blog
+const deleteproject = async (blogId) => {
+    try {
+      const res = await fetch(`${url}/project/delete/${blogId}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (res.ok) {
+        alert("Blog deleted successfully");
+        // Update the view after deleting the blog
+        viewProjects();
+      } else {
+        alert("Something went wrong while deleting the blog");
+      }
+    } catch (error) {
+      alert("OOPS there is problem try again later!!");
+    }
+  };
+  
+
+
+window.addEventListener("DOMContentLoaded", () => viewProjects());

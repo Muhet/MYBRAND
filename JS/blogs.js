@@ -1,51 +1,56 @@
-/*........INSERT CONTENT.... */
+
+/*........BLOG CONTENTS.... */
 let articleID = "";
-const postBlog = async () => {
-    const date = new Date().toDateString();
+
+const Form = document.querySelector(".form");
+
+Form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     const title = document.querySelector("#title").value;
     const category = document.querySelector("#cat").value;
-    const messageB = document.querySelector("#blogMessage").value;
+    const description = document.querySelector("#blogMessage").value;
     const image = document.querySelector("#file").value;
 
-    const response = await fetch("http://localhost:3000/Blogs", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            title,
-            category,
-            messageB,
-            image,
-            date,
-        }),
-    });
+    const data = { title, category, description, image }
+    console.log(data)
+    fetch("https://excited-visor-hen.cyclic.app/api/blogs/create",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        }).then((response) => {
+            return response.json()
+        }).then((data) => {
+            console.log(data)
+           if(data.ok){
+            alert(data.message)
+           }else{
+            alert(data.errors.name)
+           }
+        }).catch(error => alert(error))
 
-    document.querySelector("#title").value = "";
-    document.querySelector("#cat").value = "";
-    document.querySelector("#blogMessage").value = "";
-    document.querySelector("#file").value = "";
-    alert("Your blog has been added successfully")
-    window.location.replace('./ArticleList.html');
+});
 
-}
 /* ####################################### */
 
 /* ####################################### */
 /* DISPLAY TABLE CONTENT */
 
 const fetchBlog = async () => {
-    
-    const response = await fetch("http://localhost:3000/Blogs");
-    const post = await response.json();
-
-    const BlogsContainer = document.querySelector("#Blogs");
-    let templete = "";
-    post.forEach((blog) => {
-        templete += `
+    const BlogsContent = document.querySelector('#Blogs');
+    fetch("https://excited-visor-hen.cyclic.app/api/blogs")
+        .then((response) => response.json())
+        .then((blogs) => {
+            /* console.log(blogs) */
+            let template = "";
+            blogs.data.forEach((blog) => {
+                template += `
         <div class="table_row">
                                 <div class="table_cell first_cell">
-                                    <p>${blog.id}</p>
+                                    <p>${blog._id}</p>
                                 </div>
                                 <div class="table_cell">
                                     <p>${blog.category}</p>
@@ -55,18 +60,19 @@ const fetchBlog = async () => {
                                 </div>
                                
                                 <div class="table_cell">
-                                    <p>${blog.date}</p>
+                                    <p>${blog.createdAt}</p>
                                 </div>
                                 <div class="table_cell">
                                     <div class="actionIcons last_cell">
-                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${blog.id});");"  />
-                                        <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${blog.id});"/>
+                                        <img src="../images/Edit.png" alt="" id="editIcon" onClick="OpenModel(${blog._id.toString()});");"  />
+                                        <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteBlog(${blog._id.toString()});"/>
                                     </div>
                                 </div>
                             </div>
         `
-    });
-    BlogsContainer.innerHTML = templete;
+            })
+            BlogsContent.innerHTML = template;
+        })
 
 
 }
@@ -74,31 +80,32 @@ const fetchBlog = async () => {
 /* FETCHING ON CLIENT SIDE */
 
 const fetch_clientBlog = async () => {
-    const response = await fetch("http://localhost:3000/Blogs");
-    const post = await response.json();
     const BlogsContent = document.querySelector('#Client_Blogs');
-    let temp = "";
-
-    post.forEach((blog) => {
-        temp += `
-       
-           <div class="blogCard">
-            <img src="${blog.image}"  alt="" id="blogIMG"/>
-                    <div class="sectionPar">
-                        <h3>${blog.title}</h3>
-                        <span id="blogparagraph">${blog.messageB.slice(0, 50)}
-                        </span>
-                        <div class="ReadMore" >
-                            <a href="ReadmoreBlog.html?id=${blog.id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
-                        </div>
-                    </div>
-                    </div>
-                 
-            
-            `
-
+   fetch("https://excited-visor-hen.cyclic.app/api/blogs")
+    .then((response) => response.json())
+        .then((blogs) => {
+            console.log(blogs)
+          let temp = "";
+            blogs.data.forEach((blog)=>{
+                
+               temp += `
+                 <div class="blogCard">
+                 <img src="${blog.image}"  alt="" id="blogIMG"/>
+                         <div class="sectionPar">
+                             <h3>${blog.title}</h3>
+                             <span id="blogparagraph">${blog.description.slice(0, 50)}
+                             </span>
+                             <div class="ReadMore" >
+                                 <a href="ReadmoreBlog.html?id=${blog._id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
+                             </div>
+                         </div>
+                         </div>
+                  `
+            })
+  
+            BlogsContent.innerHTML = temp;
     });
-    BlogsContent.innerHTML = temp;
+ 
 }
 fetch_clientBlog();
 
@@ -109,8 +116,10 @@ fetch_clientBlog();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderBlog = async () => {
-    const res = await fetch('http://localhost:3000/Blogs/'+id);
+    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`);
     const post = await res.json();
+    console.log(post._id)
+              
     const template = `
     <div class="leftSide">
     <h1>${post.title}</h1>
@@ -132,22 +141,21 @@ const renderBlog = async () => {
 
     container.innerHTML = template;
 }
-renderBlog();
-
+ renderBlog();
+ 
 
 /* DELETE FUNCTION */
 
-const deleteBlog = async (article_id) => {
-    await fetch(`http://localhost:3000/Blogs/${article_id}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json",
-        },
+const deleteBlog = async (blogId) => {
+    const response = await fetch(`http://localhost:3000/blog/delete/${blogId}`, {
+      method: "DELETE",
     });
+    fetchBlog();
+  };
 
-}
+
 const getById = async (article_id) => {
-    await fetch(`http://localhost:3000/Blogs/${article_id}`, {
+    await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${article_id}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -169,7 +177,7 @@ modelBox.style.display = "none";
 
 // fun to open model with content of selected article
 const OpenModel = async (article_id) => {
-    const response = await fetch(`http://localhost:3000/Blogs/${article_id}`);
+fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${article_id}`);
 
     const blog = await response.json();
     // show model box
@@ -193,7 +201,7 @@ const updatingPost = async () => {
         image: newForm.file.value,
     }
 
-    const response = await fetch(`http://localhost:3000/Blogs/${articleID}`, {
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/update/${articleID}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -210,10 +218,4 @@ if (newForm != null) {
         updatingPost();
     })
 }
-
-
-
-
-
-window.addEventListener("DOMContentLoaded", () => fetchBlog());
 
