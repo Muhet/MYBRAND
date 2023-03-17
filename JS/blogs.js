@@ -76,7 +76,7 @@ const fetchBlog = async () => {
 
 
 }
-
+fetchBlog();
 /* FETCHING ON CLIENT SIDE */
 
 const fetch_clientBlog = async () => {
