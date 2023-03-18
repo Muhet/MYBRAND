@@ -21,10 +21,10 @@ const creatcoment = async (e) => {
 
 comentForm && comentForm.addEventListener('submit', creatcoment);
 
-
-const fetch_comment = async (id) => {
-    const ClientContent = document.querySelector('#Client_comment');
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+const ClientContent = document.querySelector('#Client_comment');
+const fetch_comment = async () => {
+   
+   fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
@@ -46,7 +46,7 @@ const fetch_comment = async (id) => {
 </div>
       <div class="table_cell last_cell">
           <div class="actionIcons">
-              <a href="viewComent.html/blog/?id=${blog._id}/comments/${comment._id}">
+              <a href="viewComent.html/id=${comment._id}">
               <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
               <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment('${comment._id}');"/>
           </div>
