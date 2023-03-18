@@ -69,7 +69,7 @@ const deletecoment = async (article_id) => {
     });
 
 }
-const id = new URLSearchParams(window.location.search).get('id');
+/* const id = new URLSearchParams(window.location.search).get('id'); */
 
 const viewComment = async (id) => {
     const ViewContent = document.querySelector('#View_comment');
