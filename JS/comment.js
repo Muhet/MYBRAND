@@ -73,7 +73,7 @@ const id = new URLSearchParams(window.location.search).get('id');
 
 const viewComment = async (id) => {
     const ViewContent = document.querySelector('#View_comment');
- fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`)
+ fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
  .then((res) => res.json())
  .then((Blog) =>{
 console.log(Blog)
