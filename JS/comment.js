@@ -84,7 +84,7 @@ console.log(Blog)
             Blog.data.forEach((blog) =>{
             comments.data.forEach((comment) => {
                temp = `
-                <h2 id="comentTitle">${comment._id}</h2>
+                <h2 id="comentTitle">${blog.title}</h2>
                 <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
                         <img src=" alt="" id="webDesImage"/>
