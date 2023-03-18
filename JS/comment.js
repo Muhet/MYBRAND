@@ -87,7 +87,7 @@ const viewComment = async (id) => {
                     </div>
                     <div class="right_card_Comment" id="card_Comment">
                         <span class="Pargraph">
-                        ${comment._commentBody}
+                        ${comment.commentBody}
                         </span>
                         <div class="Viewcomments">
                             <p id="feedBack">Heloooooooooooooo</p>
