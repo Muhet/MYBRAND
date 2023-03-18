@@ -6,7 +6,7 @@ const creatcoment = async (e) => {
         email: comentForm.email.value,
         textarea: comentForm.textarea.value,
     }
-    await fetch("http://localhost:3000/Comments", {
+    await fetch("https://excited-visor-hen.cyclic.app/api/Comments", {
         method: 'POST',
         body: JSON.stringify(OBDOC),
         headers: {
@@ -21,7 +21,7 @@ comentForm && comentForm.addEventListener('submit', creatcoment);
 
 const fetch_comment = async (id) => {
     const ClientContent = document.querySelector('#Client_comment');
-    const response = await fetch(`http://localhost:3000/api/comments`)
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
     .then((response) => response.json())
     .then((comments) => {
         let temp = "";
@@ -60,14 +60,14 @@ const fetch_comment = async (id) => {
 fetch_comment();
 
 const deletecoment = async (article_id) => {
-    await fetch(`http://localhost:3000/Comments/${article_id}`, {
+    await fetch(`https://excited-visor-hen.cyclic.app/api/Comments/${article_id}`, {
         method: "DELETE",
 
     });
 
 }
 const viewComment = async (id) => {
-    const res = await fetch(`http://localhost:3000/Comments/?id=${id}`);
+    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/Comments/?id=${id}`);
     const Blog = await res.json();
     const COM = await res.json();
     const ViewContent = document.querySelector('#View_comment');
