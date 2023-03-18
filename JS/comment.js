@@ -87,7 +87,7 @@ console.log(Blog)
                 <h2 id="comentTitle">${blog.title}</h2>
                 <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
-                        <img src=" alt="" id="webDesImage"/>
+                        <img src="${blog.image}" alt="" id="webDesImage"/>
                     </div>
                     <div class="right_card_Comment" id="card_Comment">
                         <span class="Pargraph">
