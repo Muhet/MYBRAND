@@ -70,9 +70,10 @@ const deletecoment = async (article_id) => {
 
 }
 const viewComment = async (id) => {
-    const ViewContent = document.querySelector('#View_comment');
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs`);
     const res = await fetch(`http://localhost:3000/api/api/comments/?id=${id}`);
+    const ViewContent = document.querySelector('#View_comment');
+    
     const Blog = await res.json();
     console.log(Blog)
     let temp = "";
