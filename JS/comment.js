@@ -91,7 +91,7 @@ console.log(Blog)
                     </div>
                     <div class="right_card_Comment" id="card_Comment">
                         <span class="Pargraph">
-                       
+                       ${blog.description}
                         </span>
                         <div class="Viewcomments">
                             <p id="feedBack"> ${comment.commentBody}</p>
