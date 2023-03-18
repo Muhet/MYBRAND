@@ -77,7 +77,7 @@ const viewComment = async (id) => {
  .then((res) => res.json())
  .then((Blog) =>{
 console.log(Blog)
-    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}comments`)
+    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}/comments`)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
