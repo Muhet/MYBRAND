@@ -80,7 +80,7 @@ const viewComment = async (id) => {
             comments.data.forEach((comment) => {
                 console.log(comment)
                 temp = `
-                <h2 id="comentTitle">${comment.title}</h2>
+                <h2 id="comentTitle">${comment.commentBody}</h2>
                 <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
                         <img src=" alt="" id="webDesImage"/>
