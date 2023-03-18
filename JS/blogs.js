@@ -13,7 +13,6 @@ Form.addEventListener('submit', (e) => {
     const image = document.querySelector("#file").value;
 
     const data = { title, category, description, image }
-    console.log(data)
     fetch("https://excited-visor-hen.cyclic.app/api/blogs/create",
         {
             method: "POST",
@@ -24,8 +23,7 @@ Form.addEventListener('submit', (e) => {
         }).then((response) => {
             return response.json()
         }).then((data) => {
-            console.log(data)
-            if (data.ok) {
+           if (data.ok) {
                 alert(data.message)
             } else {
                 alert(data.errors.name)
@@ -44,7 +42,6 @@ const fetchBlog = async () => {
     fetch("https://excited-visor-hen.cyclic.app/api/blogs")
         .then((response) => response.json())
         .then((blogs) => {
-            /* console.log(blogs) */
             let template = "";
             blogs.data.forEach((blog) => {
                 template += `
@@ -117,9 +114,7 @@ const container = document.querySelector('#might');
 const renderBlog = async () => {
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`);
     const post = await res.json();
-    console.log(post._id)
-
-    const template = `
+   const template = `
     <div class="leftSide">
     <h1>${post.title}</h1>
     <img src="${post.image}" alt="" id="image"/>

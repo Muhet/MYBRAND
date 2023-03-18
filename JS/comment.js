@@ -1,12 +1,13 @@
 const comentForm = document.querySelector('#form');
+
 const creatcoment = async (e) => {
     e.preventDefault();
     const OBDOC = {
-        names: comentForm.names.value,
-        email: comentForm.email.value,
-        textarea: comentForm.textarea.value,
+      
+        commentBody: comentForm.textarea.value,
+       
     }
-    await fetch("https://excited-visor-hen.cyclic.app/api/Comments", {
+    await fetch("https://excited-visor-hen.cyclic.app/api/comments", {
         method: 'POST',
         body: JSON.stringify(OBDOC),
         headers: {
@@ -14,8 +15,10 @@ const creatcoment = async (e) => {
         }
 
     });
+
     window.location.replace("./index.html")
 }
+
 comentForm && comentForm.addEventListener('submit', creatcoment);
 
 
@@ -26,7 +29,7 @@ const fetch_comment = async (id) => {
     .then((comments) => {
         let temp = "";
         comments.data.forEach((comment) => {
-            console.log(comment)
+            
             temp += `
      <div class="table_row">
       <div class="table_cell first_cell">
@@ -67,28 +70,27 @@ const deletecoment = async (article_id) => {
 
 }
 const viewComment = async (id) => {
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs`);
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/Comments/?id=${id}`);
     const Blog = await res.json();
-    const COM = await res.json();
-    const ViewContent = document.querySelector('#View_comment');
+   const ViewContent = document.querySelector('#View_comment');
     let temp = "";
-    Blog.forEach((coment) => {
-        COM.forEach((com) => {
-
+    Blog.data.forEach((blog) => {
+      
             temp += `
-        <h2 id="comentTitle">${coment.title}</h2>
+        <h2 id="comentTitle">${blog.title}</h2>
         <div class="cards_Main_comment">
             <div class="left_Cards_comment" id="Cards_comment">
-                <img src="${coment.image}" alt="" id="webDesImage"/>
+                <img src="${blog.image}" alt="" id="webDesImage"/>
             </div>
             <div class="right_card_Comment" id="card_Comment">
                 <span class="Pargraph">
-                   ${coment.messageB}
+                 
                 </span>
                 <div class="Viewcomments">
-                    <p id="feedBack">${com.textarea}</p>
+                    <p id="feedBack">Heloooooooooooooo</p>
                     <div class="comentetorIMG">
-                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">${com.names}</span>
+                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">${comment.fullName}</span>
                     </div>
                 </div>
             </div>
@@ -97,7 +99,7 @@ const viewComment = async (id) => {
           
           `
         });
-    });
+   
     ViewContent.innerHTML = temp;
 }
 viewComment();
