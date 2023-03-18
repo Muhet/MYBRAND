@@ -26,7 +26,7 @@ const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
     .then((res) => res.json())
     .then((Blog) =>{
-   console.log(Blog.data[indexedDB])
+   console.log(Blog.data[0])
    
    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
