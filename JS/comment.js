@@ -70,10 +70,11 @@ const deletecoment = async (article_id) => {
 
 }
 const viewComment = async (id) => {
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs`);
-    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/Comments/?id=${id}`);
+    const ViewContent = document.querySelector('#View_comment');
+    const response = await fetch(`http://localhost:3000/api/blogs`);
+    const res = await fetch(`http://localhost:3000/api/api/comments/?id=${id}`);
     const Blog = await res.json();
-   const ViewContent = document.querySelector('#View_comment');
+    console.log(Blog)
     let temp = "";
     Blog.data.forEach((blog) => {
       
@@ -90,7 +91,7 @@ const viewComment = async (id) => {
                 <div class="Viewcomments">
                     <p id="feedBack">Heloooooooooooooo</p>
                     <div class="comentetorIMG">
-                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">${comment.fullName}</span>
+                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">Muheto</span>
                     </div>
                 </div>
             </div>
