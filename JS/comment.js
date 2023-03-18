@@ -32,7 +32,7 @@ const fetch_comment = async () => {
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
-            Blog.data.forEach((blog) =>{
+          
             comments.data.forEach((comment) => {
 
                 temp += `
@@ -60,7 +60,7 @@ const fetch_comment = async () => {
           
           `
             })
-        });
+       
             ClientContent.innerHTML = temp;
         });
     });
