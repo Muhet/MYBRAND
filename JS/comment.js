@@ -81,6 +81,7 @@ console.log(Blog)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
+            Blog.data.forEach((blog) =>{
             comments.data.forEach((comment) => {
                temp = `
                 <h2 id="comentTitle">${comment._id}</h2>
@@ -104,7 +105,7 @@ console.log(Blog)
                   
                   `
             })
-
+        })
             ViewContent.innerHTML = temp;
         });
 
