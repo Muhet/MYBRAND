@@ -3,9 +3,9 @@ const comentForm = document.querySelector('#form');
 const creatcoment = async (e) => {
     e.preventDefault();
     const OBDOC = {
-      
+
         commentBody: comentForm.textarea.value,
-       
+
     }
     await fetch("https://excited-visor-hen.cyclic.app/api/comments", {
         method: 'POST',
@@ -25,12 +25,12 @@ comentForm && comentForm.addEventListener('submit', creatcoment);
 const fetch_comment = async (id) => {
     const ClientContent = document.querySelector('#Client_comment');
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
-    .then((response) => response.json())
-    .then((comments) => {
-        let temp = "";
-        comments.data.forEach((comment) => {
-            
-            temp += `
+        .then((response) => response.json())
+        .then((comments) => {
+            let temp = "";
+            comments.data.forEach((comment) => {
+
+                temp += `
      <div class="table_row">
       <div class="table_cell first_cell">
           <p>${comment._id.slice(4, 7)}</p>
@@ -54,11 +54,11 @@ const fetch_comment = async (id) => {
   </div>
           
           `
-        })
-        
-        ClientContent.innerHTML = temp;
-    });
-    
+            })
+
+            ClientContent.innerHTML = temp;
+        });
+
 }
 fetch_comment();
 
@@ -69,17 +69,17 @@ const deletecoment = async (article_id) => {
     });
 
 }
+const id = new URLSearchParams(window.location.search).get('id');
+const ViewContent = document.querySelector('#View_comment');
 const viewComment = async (id) => {
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs`);
     const res = await fetch(`http://localhost:3000/api/api/comments/?id=${id}`);
-    const ViewContent = document.querySelector('#View_comment');
-    
     const Blog = await res.json();
     console.log(Blog)
     let temp = "";
     Blog.data.forEach((blog) => {
-      
-            temp += `
+
+        temp += `
         <h2 id="comentTitle">${blog.title}</h2>
         <div class="cards_Main_comment">
             <div class="left_Cards_comment" id="Cards_comment">
@@ -100,8 +100,8 @@ const viewComment = async (id) => {
         </div>
           
           `
-        });
-   
+    });
+
     ViewContent.innerHTML = temp;
 }
 viewComment();
