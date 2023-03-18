@@ -70,38 +70,42 @@ const deletecoment = async (article_id) => {
 
 }
 const id = new URLSearchParams(window.location.search).get('id');
-const ViewContent = document.querySelector('#View_comment');
+
 const viewComment = async (id) => {
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs`);
-    const res = await fetch(`http://localhost:3000/api/api/comments/?id=6410c3065f9ec1efaa4a5b38`);
-    const Blog = await res.json();
-    console.log(Blog)
-    let temp = "";
-    Blog.data.forEach((blog) => {
-
-        temp += `
-        <h2 id="comentTitle">${blog.title}</h2>
-        <div class="cards_Main_comment">
-            <div class="left_Cards_comment" id="Cards_comment">
-                <img src="${blog.image}" alt="" id="webDesImage"/>
-            </div>
-            <div class="right_card_Comment" id="card_Comment">
-                <span class="Pargraph">
-                 
-                </span>
-                <div class="Viewcomments">
-                    <p id="feedBack">Heloooooooooooooo</p>
-                    <div class="comentetorIMG">
-                        <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">Muheto</span>
+    const ViewContent = document.querySelector('#View_comment');
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+        .then((response) => response.json())
+        .then((comments) => {
+            let temp = "";
+            comments.data.forEach((comment) => {
+                console.log(comment)
+                temp += `
+                <h2 id="comentTitle">${comment.title}</h2>
+                <div class="cards_Main_comment">
+                    <div class="left_Cards_comment" id="Cards_comment">
+                        <img src=" alt="" id="webDesImage"/>
                     </div>
+                    <div class="right_card_Comment" id="card_Comment">
+                        <span class="Pargraph">
+                         
+                        </span>
+                        <div class="Viewcomments">
+                            <p id="feedBack">Heloooooooooooooo</p>
+                            <div class="comentetorIMG">
+                                <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">Muheto</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
-            
-        </div>
-          
-          `
-    });
+                  
+                  `
+            })
 
-    ViewContent.innerHTML = temp;
+            ViewContent.innerHTML = temp;
+        });
+
+
+  
 }
 viewComment();
