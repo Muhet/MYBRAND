@@ -46,7 +46,7 @@ const fetch_comment = async (id) => {
 </div>
       <div class="table_cell last_cell">
           <div class="actionIcons">
-              <a href="viewComent.html/blog/?id=${comment._id}">
+              <a href="viewComent.html/blog/?id=${blog._id}/comments/${comment._id}">
               <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
               <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment('${comment._id}');"/>
           </div>
