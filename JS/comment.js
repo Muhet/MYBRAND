@@ -26,7 +26,7 @@ const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
     .then((res) => res.json())
     .then((Blog) =>{
-   console.log(Blog)
+   console.log(Blog.data)
    
    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
@@ -81,7 +81,7 @@ const viewComment = async (id) => {
  fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
  .then((res) => res.json())
  .then((Blog) =>{
-console.log(Blog)
+
     fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}/comments`)
         .then((response) => response.json())
         .then((comments) => {
