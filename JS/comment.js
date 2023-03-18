@@ -79,7 +79,7 @@ const viewComment = async (id) => {
             let temp = "";
             comments.data.forEach((comment) => {
                 console.log(comment)
-                temp += `
+                temp = `
                 <h2 id="comentTitle">${comment.title}</h2>
                 <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
