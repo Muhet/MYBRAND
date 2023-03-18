@@ -87,10 +87,10 @@ const viewComment = async (id) => {
                     </div>
                     <div class="right_card_Comment" id="card_Comment">
                         <span class="Pargraph">
-                        ${comment.commentBody}
+                       
                         </span>
                         <div class="Viewcomments">
-                            <p id="feedBack">Heloooooooooooooo</p>
+                            <p id="feedBack"> ${comment.commentBody}/p>
                             <div class="comentetorIMG">
                                 <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">Muheto</span>
                             </div>
