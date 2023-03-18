@@ -73,13 +73,16 @@ const id = new URLSearchParams(window.location.search).get('id');
 
 const viewComment = async (id) => {
     const ViewContent = document.querySelector('#View_comment');
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+ fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
+ .then((res) => res.json())
+ .then((Blog) =>{
+console.log(Blog)
+    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
             comments.data.forEach((comment) => {
-                console.log(comment)
-                temp = `
+               temp = `
                 <h2 id="comentTitle">${comment._id}</h2>
                 <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
@@ -105,7 +108,7 @@ const viewComment = async (id) => {
             ViewContent.innerHTML = temp;
         });
 
-
+    });
   
 }
 viewComment();
