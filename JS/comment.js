@@ -90,7 +90,7 @@ const viewComment = async (id) => {
                        
                         </span>
                         <div class="Viewcomments">
-                            <p id="feedBack"> ${comment.commentBody}/p>
+                            <p id="feedBack"> ${comment.commentBody}</p>
                             <div class="comentetorIMG">
                                 <img src="../images/account.png" alt="" id="viewer"><span id="viewer_name">Muheto</span>
                             </div>
