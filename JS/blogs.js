@@ -112,41 +112,28 @@ fetch_clientBlog();
 /* GETTING SINGLE BLOG BY IT'S ID */
 
 const id = new URLSearchParams(window.location.search).get('id');
-const container = document.querySelector('#might');
-const renderBlog = async () => {
-   
-    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
-    .then((response) => response.json)
-    .then((post)=>{
-        let template ="";
-        console.log(post)
-            post.data.forEach((post)=>{
-                 template = `
-                <div class="leftSide">
-                <h1>${post.title}</h1>
-                <img src="${post.image}" alt="" id="image"/>
-            </div>
-            <div class="rightSide">
-                <spam id="paragraph">
-                    ${post.message}
-                </spam>
-                <div class="social_media">
-                   <img src="../images/BackICNBlue.png" alt="" class="backward"/>
-                    <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
-                   560k</span>
-                    <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
-                   
-                </div>
-              </div>
-                `
-            })
-   container.innerHTML = template;
-    })
-   
 
-    
-}
-renderBlog();
+const fetch_singleBlog = async (id) => {
+    const blogContent = document.querySelector('#might');
+    fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
+        .then((response) => response.json())
+        .then((blog) => {
+            const { title, image, description, content } = blog;
+            const blogHTML = `
+                <div class="singleBlog">
+                    <img src="${image}" alt="" id="singleBlogIMG"/>
+                    <h1 id="blogTitle">${title}</h1>
+                    <p id="blogDescription">${description}</p>
+                    <div id="blogContent">${content}</div>
+                </div>
+            `;
+            blogContent.innerHTML = blogHTML;
+        });
+};
+
+// You can call this function with the blog ID that you want to retrieve, like this:
+fetch_singleBlog("641665d2efdf129cf8e577e5");
+
 
 
 /* DELETE FUNCTION */

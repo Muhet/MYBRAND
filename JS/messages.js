@@ -46,7 +46,7 @@ const ViewMessages = async () => {
 ViewMessages();
 
 const id = new URLSearchParams(window.location.search).get('id');
-const container = document.querySelector('#main');
+const container = document.querySelector('#might');
 const renderMess = async () => {
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/messages`).
     then((response) = response.json())
