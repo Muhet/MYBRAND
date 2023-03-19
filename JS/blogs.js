@@ -84,7 +84,6 @@ const fetch_clientBlog = async () => {
         .then((response) => response.json())
         .then((blogs) => {
             let temp = "";
-            console.log(blogs)
             blogs.data.forEach((blog) => {
 
                 temp += `
@@ -95,7 +94,7 @@ const fetch_clientBlog = async () => {
                              <span id="blogparagraph">${blog.description.slice(0, 50)}
                              </span>
                              <div class="ReadMore" >
-                                 <a onclick="fetch_singleBlog('${blog._id}')" onClick='renderBlog()' id="blogReadMore">Read More</a>
+                                 <a href="ReadmoreBlog.html?id=${blog._id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
                              </div>
                          </div>
                          </div>
