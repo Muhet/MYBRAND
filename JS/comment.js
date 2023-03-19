@@ -32,7 +32,7 @@ const fetch_comment = async () => {
             let temp = "";
               Blog.data.forEach((blog)=>{
                     console.log(blog._id)
-             
+                  })
             comments.data.forEach((comment) => {
 
                 temp += `
@@ -59,7 +59,7 @@ const fetch_comment = async () => {
   </div>
           
           `
-            })
+          
           });
             ClientContent.innerHTML = temp;
         });
