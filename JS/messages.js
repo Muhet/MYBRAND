@@ -1,16 +1,16 @@
+const url = "https://excited-visor-hen.cyclic.app/api/"
+const send_message = async () => {
+    const QueryForm = document.querySelector("#form");
+    const names = document.querySelector("#Names").value;
+    const phone= document.querySelector("#PNumber").value;
+    const email = document.querySelector("#emails").value;
+    const message = document.querySelector("#message").value;
 
-const createMessage = async () => {
-    const form = document.querySelector("#new_client_form");
-    const names = form.elements.Names.value;
-    const phone = form.elements.PNumber.value;
-    const email = form.elements.emails.value;
-    const message= form.elements.messages.value;
-console.log(form)
     try {
-        const response = await fetch(`https://excited-visor-hen.cyclic.app/api/message/create`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
+        const res = await fetch(`${url}/project/create`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
             },
             body: JSON.stringify({
                 names,
@@ -19,21 +19,16 @@ console.log(form)
                 message,
             }),
         });
-
-        if (response.ok) {
-            form.reset();
-            window.location.href = "./index.html"
-            toastr.success("Your messagenhas been updated successfully");
-
-        } else {
-            const error = await response.json();
-            toastr.info(`Failed to send message: ${error.message}`);
+        if(response.ok){
+            QueryForm.reset();
+            toastr.success("Your project has been saved successfully!!");
         }
+        toastr.info("Something is wrong your project is not saved!!!")
     } catch (error) {
-        toastr.error("Failed to send message. Please try again later.");
+        toastr.error("OOPS there is problem try again later!!");
     }
+
 }
-createMessage();
 
 
 

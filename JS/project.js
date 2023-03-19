@@ -3,7 +3,6 @@
 const url = "https://excited-visor-hen.cyclic.app/api/"
 const postProject = async () => {
     const ProjectForm = document.querySelector("#form");
-    let date = new Date().toDateString();
     const title = document.querySelector("#title").value;
     const image = document.querySelector("#file").value;
     const description = document.querySelector("#description").value;
