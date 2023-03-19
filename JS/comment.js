@@ -75,7 +75,7 @@ const deletecoment = async (blogId, article_id) => {
         location.reload();
     })
     .catch((err) => {
-        alert(err)
+        toastr.error(err)
     });
 
 }
