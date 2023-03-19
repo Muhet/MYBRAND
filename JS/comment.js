@@ -117,5 +117,5 @@ const viewComment = async (id) => {
           });
       });
   }
-  viewComment(blogId); // Pass the blogId parameter to the function when calling it.
+  viewComment(); // Pass the blogId parameter to the function when calling it.
   
