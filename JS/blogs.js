@@ -119,6 +119,7 @@ const renderBlog = async () => {
     .then((response) => response.json)
     .then((post)=>{
         let template ="";
+        console.log(post)
             post.data.forEach((post)=>{
                  template = `
                 <div class="leftSide">
