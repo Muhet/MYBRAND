@@ -1,11 +1,11 @@
 const url = "https://excited-visor-hen.cyclic.app/api/"
 const send_message = async () => {
-    const QueryForm = document.querySelector("#form");
+    const QueryForm = document.querySelector("#new_client_form");
     const names = document.querySelector("#Names").value;
     const phone= document.querySelector("#PNumber").value;
     const email = document.querySelector("#emails").value;
     const message = document.querySelector("#message").value;
-
+        console.log(QueryForm)
     try {
         const res = await fetch(`${url}/project/create`,{
             method:"POST",
@@ -29,7 +29,7 @@ const send_message = async () => {
     }
 
 }
-
+send_message();
 
 
 /* RETRIEVING DATA FROM DATABASE */
