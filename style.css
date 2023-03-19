@@ -553,6 +553,12 @@ hr {
     font-family: 'Poppins', sans-serif;
     box-shadow: 4px 2px 5px rgba(0, 0, 0, .3);
 }
+.save_btn:hover {
+
+    background: transparent;
+    color: #1F1652;
+
+}
 
 .TWImage {
     max-height: 30px;
