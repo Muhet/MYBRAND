@@ -114,6 +114,7 @@ fetch_clientBlog();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderBlog = async () => {
+    let template ="";
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
     .then((response) => response.json)
     .then((post)=>{
