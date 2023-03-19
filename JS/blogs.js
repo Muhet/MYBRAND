@@ -114,8 +114,10 @@ fetch_clientBlog();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderBlog = async () => {
-    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`);
-    const post = await res.json();
+    const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
+    .then((response) => response.json)
+    .then((post)=>{
+
    const template = `
     <div class="leftSide">
     <h1>${post.title}</h1>
@@ -123,7 +125,7 @@ const renderBlog = async () => {
 </div>
 <div class="rightSide">
     <spam id="paragraph">
-        ${post.messageB}
+        ${post.message}
     </spam>
     <div class="social_media">
        <img src="../images/BackICNBlue.png" alt="" class="backward"/>
@@ -134,6 +136,8 @@ const renderBlog = async () => {
     </div>
   </div>
     `
+    })
+   
 
     container.innerHTML = template;
 }
