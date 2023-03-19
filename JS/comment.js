@@ -57,9 +57,7 @@ const fetch_comment = async () => {
   </div>
           
           `
-          Blog.data.forEach((blog)=>{
-            console.log(blog)
-          })
+        
           });
             ClientContent.innerHTML = temp;
         });
@@ -83,9 +81,9 @@ const deletecoment = async (blogId, commentId) => {
 }
 const id = new URLSearchParams(window.location.search).get('id');
 
-const viewComment = async (id) => {
+const viewComment = async (blog_id, comment_id) => {
     const ViewContent = document.querySelector('#View_comment');
-    fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
+    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`)
       .then((res) => res.json())
       .then((Blog) => {
         fetch(`https://excited-visor-hen.cyclic.app/api/comments`+id)
