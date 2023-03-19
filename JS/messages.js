@@ -7,7 +7,7 @@ const send_message = async () => {
     const message = document.querySelector("#message").value;
         console.log(QueryForm)
     try {
-        const res = await fetch(`${url}/project/create`,{
+        const response = await fetch(`${url}/project/create`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json",
