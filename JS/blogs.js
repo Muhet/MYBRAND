@@ -118,29 +118,31 @@ const renderBlog = async () => {
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
     .then((response) => response.json)
     .then((post)=>{
-
-   const template = `
-    <div class="leftSide">
-    <h1>${post.title}</h1>
-    <img src="${post.image}" alt="" id="image"/>
-</div>
-<div class="rightSide">
-    <spam id="paragraph">
-        ${post.message}
-    </spam>
-    <div class="social_media">
-       <img src="../images/BackICNBlue.png" alt="" class="backward"/>
-        <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
-       560k</span>
-        <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
-       
-    </div>
-  </div>
-    `
+            post.data.forEach((post)=>{
+                const template = `
+                <div class="leftSide">
+                <h1>${post.title}</h1>
+                <img src="${post.image}" alt="" id="image"/>
+            </div>
+            <div class="rightSide">
+                <spam id="paragraph">
+                    ${post.message}
+                </spam>
+                <div class="social_media">
+                   <img src="../images/BackICNBlue.png" alt="" class="backward"/>
+                    <a href="comment.html"> <img src="../images/comment.png" alt="" class="comment"/><span id="likes"></span></a>
+                   560k</span>
+                    <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
+                   
+                </div>
+              </div>
+                `
+            })
+   container.innerHTML = template;
     })
    
 
-    container.innerHTML = template;
+    
 }
 renderBlog();
 
