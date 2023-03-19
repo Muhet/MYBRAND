@@ -23,7 +23,7 @@ Form.addEventListener('submit', (e) => {
         }).then((response) => {
             return response.json()
         }).then((data) => {
-           if (response.ok) {
+           if (data.data.ok) {
             window.location.href ="./ArticleList.html"
                 toastr.success(data.message)
             } else {
