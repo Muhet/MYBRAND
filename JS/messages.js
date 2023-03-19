@@ -5,7 +5,7 @@ const createMessage = async () => {
     const phone = form.elements.PNumber.value;
     const email = form.elements.emails.value;
     const message= form.elements.messages.value;
-
+console.log(form)
     try {
         const response = await fetch(`https://excited-visor-hen.cyclic.app/api/message/create`, {
             method: "PUT",
