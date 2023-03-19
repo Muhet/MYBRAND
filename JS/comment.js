@@ -71,15 +71,15 @@ const deletecoment = async (article_id) => {
 
     });
 
-}
-/* const id = new URLSearchParams(window.location.search).get('id'); */
+/* } */
+const id = new URLSearchParams(window.location.search).get('id');
 
 const viewComment = async (id) => {
     const ViewContent = document.querySelector('#View_comment');
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
       .then((res) => res.json())
       .then((Blog) => {
-        fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+        fetch(`https://excited-visor-hen.cyclic.app/api/comments`+id)
           .then((response) => response.json())
           .then((comments) => {
             let temp = "";
