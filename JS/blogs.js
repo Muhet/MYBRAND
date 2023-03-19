@@ -24,11 +24,11 @@ Form.addEventListener('submit', (e) => {
             return response.json()
         }).then((data) => {
            if (data.ok) {
-                alert(data.message)
+                toastr.success(data.message)
             } else {
-                alert(data.errors.name)
+                toastr.warning(data.errors.name)
             }
-        }).catch(error => alert(error))
+        }).catch(error => toastr.error(error))
 
 });
 
