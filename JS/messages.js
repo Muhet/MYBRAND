@@ -8,7 +8,7 @@ const createMessage = async () => {
 console.log(form)
     try {
         const response = await fetch(`https://excited-visor-hen.cyclic.app/api/message/create`, {
-            method: "PUT",
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
