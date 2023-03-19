@@ -36,7 +36,7 @@ send_message();
 /*==========ON ADMIN SIDE========== */
 const ViewMessages = async () => {
     const List_container = document.getElementById('Message');
-    await fetch(`${URL}/messages`)
+    await fetch(`${url}/messages`)
         .then((response) => response.json())
         .then((messages) => {
             console.log(messages.data.length)
