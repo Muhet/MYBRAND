@@ -119,8 +119,7 @@ const deleteproject = async (blogId) => {
       toastr.error("OOPS there is problem try again later!!");
     }
   }
-  
-/* THIS FUNCTION FOR CONTACT FORM ON LANDING PAGE */
+
 
 
 
