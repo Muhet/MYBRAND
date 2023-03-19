@@ -22,8 +22,9 @@ Form.addEventListener('submit', (e) => {
             body: JSON.stringify(data)
         }).then((response) => {
             return response.json()
-        }).then(() => {
-           if (data.data) {
+        }).then((data) => {
+            console.log(data)
+           if (response.ok) {
             window.location.href ="./ArticleList.html"
                 toastr.success(data.message)
             } else {
