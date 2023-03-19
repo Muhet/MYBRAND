@@ -22,11 +22,11 @@ const postProject = async () => {
         });
         if(response.ok){
             ProjectForm.reset();
-            alert("Your project has been saved successfully!!");
+            toastr.success("Your project has been saved successfully!!");
         }
-        alert("Something is wrong your project is not saved!!!")
+        toastr.info("Something is wrong your project is not saved!!!")
     } catch (error) {
-        alert("OOPS there is problem try again later!!");
+        toastr.error("OOPS there is problem try again later!!");
     }
 
 }
@@ -110,14 +110,14 @@ const deleteproject = async (blogId) => {
         },
       });
       if (res.ok) {
-        alert("Blog deleted successfully");
+        toastr.success("Blog deleted successfully");
         // Update the view after deleting the blog
         viewProjects();
       } else {
-        alert("Something went wrong while deleting the blog");
+        toastr.info("Something went wrong while deleting the blog");
       }
     } catch (error) {
-      alert("OOPS there is problem try again later!!");
+      toastr.error("OOPS there is problem try again later!!");
     }
   }
   
