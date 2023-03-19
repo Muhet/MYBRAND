@@ -13,7 +13,7 @@ Form.addEventListener('submit', (e) => {
     const image = document.querySelector("#file").value;
 
     const data = { title, category, description, image }
-    fetch("https://excited-visor-hen.cyclic.app/api/blogs/create",
+   const response =  fetch("https://excited-visor-hen.cyclic.app/api/blogs/create",
         {
             method: "POST",
             headers: {
@@ -23,8 +23,8 @@ Form.addEventListener('submit', (e) => {
         }).then((response) => {
             return response.json()
         }).then((data) => {
-           if (data.ok) {
-            window.location.href="./ArticleList.html"
+           if (response.ok) {
+            window.location.href ="./ArticleList.html"
                 toastr.success(data.message)
             } else {
                 toastr.warning(data.errors.name)
