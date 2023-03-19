@@ -1,8 +1,8 @@
 let URL = "https://excited-visor-hen.cyclic.app/api/";
 /* ADDING NEW MESSAGE {FROM CLIENT SIDE} */
-const Form = document.querySelector("#new_client_form")
-console.log(Form)
 
+const neame =  document.querySelector("#new_client_form")
+ console.log(neame)
 
 /* RETRIEVING DATA FROM DATABASE */
 /*==========ON ADMIN SIDE========== */
