@@ -26,16 +26,11 @@ const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
     .then((res) => res.json())
     .then((Blog) =>{
-   
    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
-            Blog.data.forEach((blog) =>{
-
-               
-
-         
+          
             comments.data.forEach((comment) => {
 
                 temp += `
@@ -49,10 +44,6 @@ const fetch_comment = async () => {
       <div class="table_cell">
       <p>${comment.blog.slice(0, 4)}</p>
   </div>
-      <div class="table_cell">
-      <p>${blog._id.slice(0, 4)}</p>
-  </div>
-      
   <div class="table_cell">
   <p>${comment.createdAt.slice(0, 10)}</p>
 </div>
@@ -67,8 +58,6 @@ const fetch_comment = async () => {
           
           `
             })
-        })
-        
        
             ClientContent.innerHTML = temp;
         });
