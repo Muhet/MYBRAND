@@ -146,7 +146,7 @@ const deleteBlog = async (blogId) => {
     })
         .then((response) => response.json())
         .then((data) => {
-            // functionalities of delete
+           toastr.success("Your Blog has been deleted succussfull")
             location.reload();
         })
         .catch((err) => {
@@ -156,7 +156,7 @@ const deleteBlog = async (blogId) => {
 };
 
 
-const getById = async (article_id) => {
+/* const getById = async (article_id) => {
     await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${article_id}`, {
         method: "GET",
         headers: {
@@ -165,7 +165,7 @@ const getById = async (article_id) => {
     });
     alert("deleted successfully")
 }
-
+ */
 /* UPDATE FUNCTION */
 
 // get model box
