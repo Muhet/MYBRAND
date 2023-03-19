@@ -1,6 +1,6 @@
 
 /* ADDING NEW MESSAGE {FROM CLIENT SIDE} */
-const Form = document.querySelector("#new_client_form")
+const Form = document.querySelector("#new_client")
 console.log(Form)
 const creatmessage = async (e) =>{
     e.preventDefault();
