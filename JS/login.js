@@ -18,13 +18,13 @@ const login = async (event)=>{
             
             window.location.href = './login.html';
          }
-         alert("Saccessfully logged!!")
+         toastr.success("Saccessfully logged!!")
          window.location.href = './admin.html';
          // Redirect the user to the protected page on the frontend
        
       })
       .catch(error => {
-        alert(error.response.data.message);
+        toastr.error(error.response.data.message);
       });
 }
 
