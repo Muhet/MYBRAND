@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "toastify-js": "^1.12.0"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "anndela",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muhet/MYBRAND.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Muhet/MYBRAND/issues"
+  },
+  "homepage": "https://github.com/Muhet/MYBRAND#readme",
+  "description": ""
 }

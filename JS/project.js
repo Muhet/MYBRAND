@@ -120,6 +120,8 @@ const deleteproject = async (blogId) => {
     }
   }
   
+/* THIS FUNCTION FOR CONTACT FORM ON LANDING PAGE */
+
 
 
 window.addEventListener("DOMContentLoaded", () => viewProjects());
