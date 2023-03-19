@@ -1,6 +1,6 @@
 const Form = document.querySelector("#new_client_form");
 console.log(Form)
-Form.addEventListener('submit', (e) => {
+const creatmessage = async (e) =>{
     e.preventDefault();
 
     const names = document.querySelector("#Names").value;
@@ -28,8 +28,8 @@ Form.addEventListener('submit', (e) => {
             }
         }).catch(error => toastr.error(error))
 
-});
-
+};
+Form.addEventListener('submit', creatmessage);
 
 /* RETRIEVING DATA FROM DATABASE */
 /*==========ON ADMIN SIDE========== */

@@ -158,16 +158,6 @@ const deleteBlog = async (blogId) => {
 };
 
 
-/* const getById = async (article_id) => {
-    await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${article_id}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-    });
-    alert("deleted successfully")
-}
- */
 /* UPDATE FUNCTION */
 
 // get model box
