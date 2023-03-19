@@ -116,7 +116,7 @@ const id = new URLSearchParams(window.location.search).get('id');
 
 const fetch_singleBlog = async (id) => {
     const blogContent = document.querySelector('#might');
-    fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
+    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`)
         .then((response) => response.json())
         .then((blog) => {
             const { title, image, description, content } = blog;
