@@ -1,36 +1,35 @@
-const url = "https://excited-visor-hen.cyclic.app/api/"
-const send_message = async () => {
-    const QueryForm = document.querySelector("#new_client_form");
+const Form = document.querySelector("#new_client_form");
+console.log(Form)
+const creatmessage = async (e) =>{
+    e.preventDefault();
+
     const names = document.querySelector("#Names").value;
-    const phone= document.querySelector("#PNumber").value;
+    const phone = document.querySelector("#PNumber").value;
     const email = document.querySelector("#emails").value;
     const message = document.querySelector("#message").value;
-       
-    try {
-        const response = await fetch(`${url}/project/create`,{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json",
+
+    const data = { names, phone, email, message}
+   const response =  fetch("https://excited-visor-hen.cyclic.app/api/message/create",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                names,
-                phone,
-                email,
-                message,
-            }),
-        });
-        if(response.ok){
-            QueryForm.reset();
-            toastr.success("Your project has been saved successfully!!");
-        }
-        toastr.info("Something is wrong your project is not saved!!!")
-    } catch (error) {
-        toastr.error("OOPS there is problem try again later!!");
-    }
+            body: JSON.stringify(data)
+        }).then((response) => {
+            return response.json()
+        }).then((data) => {
+            console.log(data)
+           if (response.ok) {
+            window.location.href ="./ArticleList.html"
+                toastr.success(data.message)
+            } else {
+                toastr.warning(data.errors.name)
+            }
+        }).catch(error => toastr.error(error))
 
-}
-
-
+};
+Form.addEventListener('submit', creatmessage);
 
 /* RETRIEVING DATA FROM DATABASE */
 /*==========ON ADMIN SIDE========== */
