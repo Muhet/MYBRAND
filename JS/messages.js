@@ -1,5 +1,5 @@
 const Form = document.querySelector("#new_client_form");
-
+console.log(Form)
 Form.addEventListener('submit', (e) => {
     e.preventDefault();
 
