@@ -215,8 +215,9 @@ const updateBlog = async () => {
 
         if (response.ok) {
             form.reset();
-            toastr.success("Your blog has been updated successfully");
             window.location.href ="./ArticleList.html"
+            toastr.success("Your blog has been updated successfully");
+           
         } else {
             const error = await response.json();
             toastr.info(`Failed to update blog: ${error.message}`);
