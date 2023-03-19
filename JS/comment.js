@@ -26,6 +26,7 @@ const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
     .then((res) => res.json())
     .then((Blog) =>{
+      console.log(Blog)
    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
@@ -51,7 +52,7 @@ const fetch_comment = async () => {
           <div class="actionIcons">
               <a href="viewComent.html/id=${comment._id}">
               <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
-              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment('${ comment._id}');"/>
+              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment('${comment._id}');"/>
           </div>
       </div>
   </div>
