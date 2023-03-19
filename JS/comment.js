@@ -65,10 +65,17 @@ const fetch_comment = async () => {
 }
 fetch_comment();
 
-const deletecoment = async (article_id) => {
-    await fetch(`https://excited-visor-hen.cyclic.app/api/Comments/${article_id}`, {
-        method: "DELETE",
-
+const deletecoment = async (blogId, article_id) => {
+  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments/${article_id}`, {
+    method: "DELETE",
+})
+    .then((response) => response.json())
+    .then((data) => {
+       toastr.success("Your comment has been deleted succussfull")
+        location.reload();
+    })
+    .catch((err) => {
+        alert(err)
     });
 
 }
