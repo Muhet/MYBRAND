@@ -65,8 +65,8 @@ const fetch_comment = async () => {
 }
 fetch_comment();
 
-const deletecoment = async (blogId, article_id) => {
-  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments/${article_id}`, {
+const deletecoment = async (blogId, commentId) => {
+  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments/${commentId}`, {
     method: "DELETE",
 })
     .then((response) => response.json())
