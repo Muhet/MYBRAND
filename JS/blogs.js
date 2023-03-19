@@ -84,6 +84,7 @@ const fetch_clientBlog = async () => {
         .then((response) => response.json())
         .then((blogs) => {
             let temp = "";
+            console.log(blogs)
             blogs.data.forEach((blog) => {
 
                 temp += `
