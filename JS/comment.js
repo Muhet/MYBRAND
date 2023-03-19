@@ -25,8 +25,8 @@ const ClientContent = document.querySelector('#Client_comment');
 const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
     .then((res) => res.json())
-    .then((Blog) =>{
-      console.log(Blog)
+    .then((Blog) => Blog.data[0])
+      console.log(Blog.data)
    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
@@ -62,8 +62,7 @@ const fetch_comment = async () => {
           });
             ClientContent.innerHTML = temp;
         });
-    });
-}
+      }
 fetch_comment();
 
 const deletecoment = async (blogId, commentId) => {
