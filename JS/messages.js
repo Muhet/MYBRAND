@@ -33,7 +33,7 @@ const createMessage = async () => {
         toastr.error("Failed to send message. Please try again later.");
     }
 }
-
+createMessage();
 
 
 
