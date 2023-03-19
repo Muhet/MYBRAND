@@ -24,6 +24,7 @@ Form.addEventListener('submit', (e) => {
             return response.json()
         }).then((data) => {
            if (data.ok) {
+            window.location.href="./ArticleList.html"
                 toastr.success(data.message)
             } else {
                 toastr.warning(data.errors.name)
