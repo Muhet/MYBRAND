@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/api/"
+const url = "https://excited-visor-hen.cyclic.app/api/"
 const send_message = async () => {
     const QueryForm = document.querySelector("#new_client_form");
     const names = document.querySelector("#Names").value;
