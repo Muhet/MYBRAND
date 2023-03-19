@@ -1,4 +1,4 @@
-let url = "https://excited-visor-hen.cyclic.app/api/";
+let URL = "https://excited-visor-hen.cyclic.app/api/";
 /* ADDING NEW MESSAGE {FROM CLIENT SIDE} */
 const Form = document.querySelector("#new_client_form")
 console.log(Form)
@@ -8,7 +8,7 @@ console.log(Form)
 /*==========ON ADMIN SIDE========== */
 const ViewMessages = async () => {
     const List_container = document.getElementById('Message');
-    await fetch(`${url}/messages`)
+    await fetch(`${URL}/messages`)
         .then((response) => response.json())
         .then((messages) => {
             console.log(messages.data.length)
