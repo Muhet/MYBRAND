@@ -94,7 +94,7 @@ const fetch_clientBlog = async () => {
                              <span id="blogparagraph">${blog.description.slice(0, 50)}
                              </span>
                              <div class="ReadMore" >
-                                 <button onclick="fetch_singleBlog('${blog._id}')" onClick='renderBlog()' id="blogReadMore">Read More</button>
+                                 <button onclick="fetch_singleBlog('${id}')" onClick='renderBlog()' id="blogReadMore">Read More</button>
                              </div>
                          </div>
                          </div>
