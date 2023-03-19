@@ -2,36 +2,7 @@
 /* ADDING NEW MESSAGE {FROM CLIENT SIDE} */
 const Form = document.querySelector("#new_client")
 console.log(Form)
-const creatmessage = async (e) =>{
-    e.preventDefault();
 
-    const names = document.querySelector("#Names").value;
-    const phone = document.querySelector("#PNumber").value;
-    const email = document.querySelector("#emails").value;
-    const message = document.querySelector("#message").value;
-
-    const data = { names, phone, email, message}
-   const response =  fetch("https://excited-visor-hen.cyclic.app/api/message/create",
-        {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data)
-        }).then((response) => {
-            return response.json()
-        }).then((data) => {
-            console.log(data)
-           if (response.ok) {
-            window.location.href ="./ArticleList.html"
-                toastr.success(data.message)
-            } else {
-                toastr.warning(data.errors.name)
-            }
-        }).catch(error => toastr.error(error))
-
-};
-Form.addEventListener('submit', creatmessage);
 
 /* RETRIEVING DATA FROM DATABASE */
 /*==========ON ADMIN SIDE========== */
