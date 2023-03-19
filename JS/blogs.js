@@ -114,12 +114,13 @@ fetch_clientBlog();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderBlog = async () => {
-    let template ="";
+   
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blogs/${id}`)
     .then((response) => response.json)
     .then((post)=>{
+        let template ="";
             post.data.forEach((post)=>{
-                const template = `
+                 template = `
                 <div class="leftSide">
                 <h1>${post.title}</h1>
                 <img src="${post.image}" alt="" id="image"/>
