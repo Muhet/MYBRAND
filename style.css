@@ -1069,7 +1069,7 @@ nav {
     .textArea {
         width: 225px;
         margin-left: 0;
-        margin-top: -10px;
+        margin-top: 0px;
         align-items: center;
     }
 
