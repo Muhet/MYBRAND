@@ -1,5 +1,5 @@
-const Form = document.querySelector(".clientForm");
-console.log(Form)
+const newForm = document.querySelector(".clientForm");
+console.log(newForm)
 const creatmessage = async (e) =>{
     e.preventDefault();
 
