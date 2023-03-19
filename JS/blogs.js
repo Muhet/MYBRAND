@@ -94,7 +94,8 @@ const fetch_clientBlog = async () => {
                              <span id="blogparagraph">${blog.description.slice(0, 50)}
                              </span>
                              <div class="ReadMore" >
-                                 <button onclick="fetch_singleBlog('${id}')" onClick='renderBlog()' id="blogReadMore">Read More</button>
+                                 <a href="./ReadmoreBlog.html?id=${blog._id}" id="blogReadMore">Read More</a>
+
                              </div>
                          </div>
                          </div>
@@ -111,28 +112,8 @@ fetch_clientBlog();
 
 /* GETTING SINGLE BLOG BY IT'S ID */
 
-const id = new URLSearchParams(window.location.search).get('id');
-
-const fetch_singleBlog = async (id) => {
-    const blogContent = document.querySelector('#might');
-    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`)
-        .then((response) => response.json())
-        .then((blog) => {
-            const { title, image, description, content } = blog;
-            const blogHTML = `
-                <div class="singleBlog">
-                    <img src="${image}" alt="" id="singleBlogIMG"/>
-                    <h1 id="blogTitle">${title}</h1>
-                    <p id="blogDescription">${description}</p>
-                    <div id="blogContent">${content}</div>
-                </div>
-            `;
-            blogContent.innerHTML = blogHTML;
-        });
-};
-
 // You can call this function with the blog ID that you want to retrieve, like this:
-fetch_singleBlog();
+
 
 
 

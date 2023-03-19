@@ -98,7 +98,11 @@ nav ul li a:hover::after {
     border: none;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
-
+#might{
+   display: flex;
+   justify-content: space-between;
+   gap: 30px;
+}
 .button:hover {
     background-color: transparent;
     color: #1F1652;
