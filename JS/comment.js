@@ -24,16 +24,21 @@ comentForm && comentForm.addEventListener('submit', creatcoment);
 const ClientContent = document.querySelector('#Client_comment');
 const fetch_comment = async () => {
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
-        .then((res) => res.json())
-        .then((Blog) => {
-            fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
-                .then((response) => response.json())
-                .then((comments) => {
-                    let temp = "";
-                    Blog.data.forEach((blog) => {
-                        comments.data.forEach((comment) => {
+    .then((res) => res.json())
+    .then((Blog) =>{
+   
+   fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+        .then((response) => response.json())
+        .then((comments) => {
+            let temp = "";
+            Blog.data.forEach((blog) =>{
 
-                            temp += `
+               
+
+         
+            comments.data.forEach((comment) => {
+
+                temp += `
      <div class="table_row">
       <div class="table_cell first_cell">
           <p>${comment._id.slice(4, 7)}</p>
@@ -61,13 +66,13 @@ const fetch_comment = async () => {
   </div>
           
           `
-                        })
-                    })
-
-
-                    ClientContent.innerHTML = temp;
-                });
+            })
+        })
+        
+       
+            ClientContent.innerHTML = temp;
         });
+    });
 }
 fetch_comment();
 
@@ -83,15 +88,15 @@ const deletecoment = async (article_id) => {
 const viewComment = async (id) => {
     const ViewContent = document.querySelector('#View_comment');
     fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
-        .then((res) => res.json())
-        .then((Blog) => {
-            fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}/comments`)
-                .then((response) => response.json())
-                .then((comments) => {
-                    let temp = "";
-                    Blog.data.forEach((blog) => {
-                        comments.data.forEach((comment) => {
-                            temp += `
+      .then((res) => res.json())
+      .then((Blog) => {
+        fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}/comments`)
+          .then((response) => response.json())
+          .then((comments) => {
+            let temp = "";
+            Blog.data.forEach((blog) => {
+              comments.data.forEach((comment) => {
+                temp += `
                   <h2 id="comentTitle">${blog.title}</h2>
                   <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
@@ -110,10 +115,11 @@ const viewComment = async (id) => {
                     </div>
                   </div>
                 `;
-                        })
-                    })
-                    ViewContent.innerHTML = temp;
-                });
-        });
-}
-viewComment(blogId); // Pass the blogId parameter to the function when calling it.
+              })
+            })
+            ViewContent.innerHTML = temp;
+          });
+      });
+  }
+  viewComment(blogId); // Pass the blogId parameter to the function when calling it.
+  
