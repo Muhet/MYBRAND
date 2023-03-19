@@ -48,26 +48,44 @@ ViewMessages();
 const id = new URLSearchParams(window.location.search).get('id');
 const container = document.querySelector('#might');
 const renderMess = async () => {
-    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/messages`);
-    const item = await response.json();
-    console.log(item)
+    const response = await fetch(`https://excited-visor-hen.cyclic.app/api/messages`).
+    then((response) = response.json())
+    .then((Items) =>{
+        let template="";
+        Items.data.forEach((item)=>{
+
+            console.log(item)
     template = `
-    <main class="main_Admin>
-    <div class="messageCards">
-    <div class="info">
-    <img src="../images/avatarTwo.png" alt="" id="profile"/>
-        <h2>${item.Names}</h2>
-        <h3>${item.Emails}</h3>
-        <h4>${item.Phone}</h4>
+    <div class="main_Admin">
+    <div class="cardContainer_Admin">
+        <div class="header_Admin">
+            <span><i class="fa fa-cog" aria-hidden="true"></i></span>
+            <span ><i class="fa fa-bars" aria-hidden="true"></i></span>
+        </div>
+        <div class="imageprof_Admin">
+            <img src="../images/dario.jpg" alt="" class="profilePhoto_Admin">
+        </div>
+        <h3>Muheto G. Darius<span>${item.names}</span></h3>
+        <div class="socialMedias_Admin">
+            <ul>
+                <li><i class="fa fa-graduation-cap"></i></a></li>
+                <li><i class="fa fa-book" aria-hidden="true"></i></a></li>
+                <li><a  href=""><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+        <div class="moreBTN_Admin">
+            <a href="index.html" class="clickMe">Click me</a>
+           </div>  
     </div>
-   <div class="message">
-    <p>${item.T_Message}</p>
-    <span>sent on: ${item.date}</span>
-   </div>
-   <button class="replyMessage">reply</button>
-</div>
-</div>
+       
+       <h4>Click above buttom to view more Info</h4>
+       <h5>Along side with love and Compation</h5>
+    </div>
     `
+
+        })
+    })
+    
     container.innerHTML = template;
 }
 
