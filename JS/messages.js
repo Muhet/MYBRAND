@@ -5,7 +5,7 @@ const send_message = async () => {
     const phone= document.querySelector("#PNumber").value;
     const email = document.querySelector("#emails").value;
     const message = document.querySelector("#message").value;
-        console.log(QueryForm)
+       
     try {
         const response = await fetch(`${url}/project/create`,{
             method:"POST",
@@ -29,7 +29,7 @@ const send_message = async () => {
     }
 
 }
-send_message();
+
 
 
 /* RETRIEVING DATA FROM DATABASE */
