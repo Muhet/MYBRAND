@@ -1,49 +1,43 @@
-const URL = "https://excited-visor-hen.cyclic.app/api";
 
-// post blog by using form after reload and clear form and give feed back if successfull added
 const createMessage = async () => {
-  const postBlogForm = document.querySelector(".clientForm");
-  const names = postBlogForm.elements.Names.value;
-  const phone = postBlogForm.elements.PNumber.value;
-  const email = postBlogForm.elements.emails.value;
-  const message = postBlogForm.elements.message.value;
-  
+    const form = document.getElementById(".new_client_form");
+    const names = form.elements.Names.value;
+    const phone = form.elements.PNumber.value;
+    const email = form.elements.emails.value;
+    const message= form.elements.messages.value;
 
-  try {
-    const response = await fetch(`${URL}/message/create`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        names, 
-        phone,
-        email,
-        message,
-      }),
-    });
+    try {
+        const response = await fetch(`https://excited-visor-hen.cyclic.app/api/message/create`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                names,
+                phone,
+                email,
+                message,
+            }),
+        });
 
-    if (response.ok) {
-      postBlogForm.reset();
-      alert("Your message has been sent!!");
-      renderBlogs();
-    } else {
-      const error = await response.json();
-      alert(`Failed to sent message: ${error.message}`);
+        if (response.ok) {
+            form.reset();
+            window.location.href = "./index.html"
+            toastr.success("Your messagenhas been updated successfully");
+
+        } else {
+            const error = await response.json();
+            toastr.info(`Failed to send message: ${error.message}`);
+        }
+    } catch (error) {
+        toastr.error("Failed to send message. Please try again later.");
     }
-  } catch (error) {
-    console.error(error);
-    alert("Failed to send message. Please try again later.");
-  }
-};
+}
 
 
 
-createMessage();
+
 /* RETRIEVING DATA FROM DATABASE */
-
-
-
 /*==========ON ADMIN SIDE========== */
 const ViewMessages = async () => {
     const List_container = document.getElementById('Message');
@@ -53,7 +47,7 @@ const ViewMessages = async () => {
             console.log(messages.data.length)
             let myTemp = "";
             messages.data.forEach((message) => {
-               myTemp += `
+                myTemp += `
             <div class="table_row">
             <div class="table_cell first_cell">
                 <p>${message._id.slice(6, 8)}</p>
