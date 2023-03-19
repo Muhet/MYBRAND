@@ -46,13 +46,13 @@ const ViewMessages = async () => {
 ViewMessages();
 
 const id = new URLSearchParams(window.location.search).get('id');
-const container = document.querySelector('.main_Admin');
+const container = document.querySelector('#might');
 const renderMess = async () => {
     const response = await fetch(`https://excited-visor-hen.cyclic.app/api/messages/` + id);
     const item = await response.json();
 
     template = `
-
+    <main class="main_Admin>
     <div class="messageCards">
     <div class="info">
     <img src="../images/avatarTwo.png" alt="" id="profile"/>
@@ -65,6 +65,7 @@ const renderMess = async () => {
     <span>sent on: ${item.date}</span>
    </div>
    <button class="replyMessage">reply</button>
+</div>
 </div>
     `
     container.innerHTML = template;
