@@ -94,7 +94,7 @@ const fetch_clientBlog = async () => {
                              <span id="blogparagraph">${blog.description.slice(0, 50)}
                              </span>
                              <div class="ReadMore" >
-                                 <a href="ReadmoreBlog.html?id=${blog._id}" onClick='renderBlog()' id="blogReadMore">Read More</a>
+                                 <a href="onclick="${fetch_singleBlog()}"" onClick='renderBlog()' id="blogReadMore">Read More</a>
                              </div>
                          </div>
                          </div>
@@ -132,7 +132,7 @@ const fetch_singleBlog = async (id) => {
 };
 
 // You can call this function with the blog ID that you want to retrieve, like this:
-fetch_singleBlog("641665d2efdf129cf8e577e5");
+fetch_singleBlog();
 
 
 
