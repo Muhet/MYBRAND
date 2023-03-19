@@ -1,6 +1,6 @@
 
 const createMessage = async () => {
-    const form = document.getElementById("new_client_form");
+    const form = document.querySelector("#new_client_form");
     const names = form.elements.Names.value;
     const phone = form.elements.PNumber.value;
     const email = form.elements.emails.value;
