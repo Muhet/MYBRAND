@@ -1,84 +1,82 @@
-const comentForm = document.querySelector('#form');
 
-const creatcoment = async (e) => {
-    e.preventDefault();
-    const OBDOC = {
+const form = document.querySelector('#commentForm');
+const commentBody = document.querySelector('#commentBody');
+console.log(form)
+const submitComment = async (blogId, commentBody) => {
+  const data = { blog: blogId, commentBody };
+  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    toastr.success("Your comment has been posted successfully");
+    location.reload();
+  })
+  .catch((err) => {
+    toastr.error(err.message);
+  });
+};
 
-        commentBody: comentForm.textarea.value,
-
-    }
-    await fetch("https://excited-visor-hen.cyclic.app/api/comments", {
-        method: 'POST',
-        body: JSON.stringify(OBDOC),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-
-    });
-
-    window.location.replace("./index.html")
-}
-
-comentForm && comentForm.addEventListener('submit', creatcoment);
-
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 const ClientContent = document.querySelector('#Client_comment');
+
 const fetch_comment = async () => {
-    fetch(`https://excited-visor-hen.cyclic.app/api/blogs`)
-    .then((res) => res.json())
-    .then((Blog) => Blog.data[0])
-      console.log(Blog.data)
-   fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
+    fetch(`https://excited-visor-hen.cyclic.app/api/comments`)
         .then((response) => response.json())
         .then((comments) => {
             let temp = "";
-            
             comments.data.forEach((comment) => {
-
                 temp += `
-     <div class="table_row">
-      <div class="table_cell first_cell">
-          <p>${comment._id.slice(4, 7)}</p>
-      </div>
-      <div class="table_cell">
-          <p>${comment.commentBody.slice(0, 30)}</p>
-      </div>
-      <div class="table_cell">
-      <p>${comment.blog.slice(0, 4)}</p>
-  </div>
-  <div class="table_cell">
-  <p>${comment.createdAt.slice(0, 10)}</p>
-</div>
-      <div class="table_cell last_cell">
-          <div class="actionIcons">
-              <a href="viewComent.html/id=${comment._id}">
-              <img src="../images/ViewsIcon.png" alt="" id="editIcon""/></a>
-              <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecoment('${comment._id}');"/>
-          </div>
-      </div>
-  </div>
-          
-          `
-        
-          });
+                    <div class="table_row">
+                        <div class="table_cell first_cell">
+                            <p>${comment._id.slice(4, 7)}</p>
+                        </div>
+                        <div class="table_cell">
+                            <p>${comment.commentBody.slice(0, 30)}</p>
+                        </div>
+                        <div class="table_cell">
+                            <p>${comment.blog.slice(0, 4)}</p>
+                        </div>
+                        <div class="table_cell">
+                            <p>${comment.createdAt.slice(0, 10)}</p>
+                        </div>
+                        <div class="table_cell last_cell">
+                            <div class="actionIcons">
+                                <a href="viewComent.html/id=${comment._id}">
+                                    <img src="../images/ViewsIcon.png" alt="" id="editIcon""/>
+                                </a>
+                                <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecomment('${comment.blog}', '${comment._id}')"/>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
             ClientContent.innerHTML = temp;
         });
-      }
-fetch_comment();
+}
 
-const deletecoment = async (blogId, commentId) => {
-  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments/${commentId}`, {
-    method: "DELETE",
-})
+const deletecomment = async (blogId, commentId) => {
+    fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments/${commentId}`, {
+        method: "DELETE",
+       
+    })    
     .then((response) => response.json())
     .then((data) => {
-       toastr.success("Your comment has been deleted succussfull")
+        toastr.success("Your comment has been deleted successfully");
         location.reload();
     })
     .catch((err) => {
-        toastr.error(err)
+        toastr.error(err.message);
     });
-
 }
+
+fetch_comment();
+
+/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 const id = new URLSearchParams(window.location.search).get('id');
 
 const viewComment = async (blog_id, comment_id) => {

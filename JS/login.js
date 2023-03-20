@@ -20,7 +20,7 @@ const login = async (event)=>{
          }
          toastr.success("Saccessfully logged!!")
          window.location.href = './admin.html';
-         // Redirect the user to the protected page on the frontend
+        
        
       })
       .catch(error => {
