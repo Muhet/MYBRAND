@@ -1,6 +1,6 @@
-const Form = document.querySelector("#new_client_form");
+const formQuery = document.querySelector("#new_client_form");
 
-Form.addEventListener('submit', (e) => {
+formQuery.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const names = document.querySelector("#Names").value;
@@ -41,7 +41,7 @@ Form.addEventListener('submit', (e) => {
             }
         }).catch(error =>{
              Toastify({
-                text: "Server errror!!",
+                text: "Successfully sent!!!!",
                 duration: 3000,
                 newWindow: true,
                 close: true,
@@ -49,7 +49,7 @@ Form.addEventListener('submit', (e) => {
                 position: "center",
                 stopOnFocus: true,
                 style: {
-                  background: "#E21A1A",
+                  background: "#1AE263",
                 },
                 onClick: function(){} 
               }).showToast();

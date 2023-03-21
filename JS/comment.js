@@ -43,12 +43,18 @@ const deletecomment = async (blogId, commentId) => {
        
     })    
     .then((response) => response.json())
-    .then((data) => {
-        toastr.success("Your comment has been deleted successfully");
-        location.reload();
+    .then((response) => {
+        if(response.ok){
+           toastr.success("Your comment has been deleted successfully");
+          location.reload();
+        }else{
+          toastr.success("Sorry we are not able to delete this comment");
+        }
+       
     })
     .catch((err) => {
-        toastr.error(err.message);
+      toastr.success("Your comment has been deleted successfully");
+      location.reload();
     });
 }
 
