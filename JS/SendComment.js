@@ -6,7 +6,7 @@ newComForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const commentBody = document.querySelector("#commentBody").value;
     const data = { commentBody }
-    const response = fetch(`http://localhost:3000/api/blog/create/${blogId}/comments`,
+    const response = fetch(`https://excited-visor-hen.cyclic.app/api/blog/create/${blogId}/comments`,
         {
             method: "POST",
             headers: {
@@ -31,7 +31,7 @@ newComForm.addEventListener('submit', (event) => {
                     style: {
                       background:"#96c93d",
                     },
-                    onClick: function(){} // Callback after click
+                    onClick: function(){} 
                   }).showToast();
 
             } else {
@@ -46,7 +46,7 @@ newComForm.addEventListener('submit', (event) => {
                     style: {
                       background:"#96c93d",
                     },
-                    onClick: function(){} // Callback after click
+                    onClick: function(){} 
                   }).showToast();
                 window.location.href = "./index.html"
 
