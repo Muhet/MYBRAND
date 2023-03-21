@@ -1,27 +1,5 @@
-
+const blogId = new URLSearchParams(window.location.search).get('id');
 const form = document.querySelector('#commentForm');
-const commentBody = document.querySelector('#commentBody');
-console.log(form)
-const submitComment = async (blogId, commentBody) => {
-  const data = { blog: blogId, commentBody };
-  fetch(`https://excited-visor-hen.cyclic.app/api/blog/${blogId}/comments`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then((response) => response.json())
-  .then((data) => {
-    toastr.success("Your comment has been posted successfully");
-    location.reload();
-  })
-  .catch((err) => {
-    toastr.error(err.message);
-  });
-};
-
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
 const ClientContent = document.querySelector('#Client_comment');
 
 const fetch_comment = async () => {
@@ -76,8 +54,7 @@ const deletecomment = async (blogId, commentId) => {
 
 fetch_comment();
 
-/* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ */
-const id = new URLSearchParams(window.location.search).get('id');
+
 
 const viewComment = async (blog_id, comment_id) => {
     const ViewContent = document.querySelector('#View_comment');
@@ -115,5 +92,4 @@ const viewComment = async (blog_id, comment_id) => {
           });
       });
   }
-  viewComment(); // Pass the blogId parameter to the function when calling it.
-  
+  viewComment(); 

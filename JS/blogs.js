@@ -191,7 +191,7 @@ const updateBlog = async () => {
             toastr.info(`Failed to update blog:`);
         }
     } catch (error) {
-        toastr.error("Failed to update blog. Please try again later.");
+            
     }
 }
 

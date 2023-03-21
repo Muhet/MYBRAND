@@ -124,7 +124,7 @@ nav ul li a:hover::after {
 }
 
 .leftSide {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .form-group {
@@ -187,7 +187,7 @@ label {
 
 .rightSide {
 
-    margin: 0 100px;
+    margin: 30px 100px;
 }
 
 .social_media {

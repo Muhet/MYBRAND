@@ -122,6 +122,19 @@ nav ul li a:hover::after {
     margin: 50px 100px;
     gap: 30px;
 }
+.openbox{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    float: right;
+    margin-right: 40px;
+}
+.newform{
+    display: flex;
+    flex-direction: column;
+    outline: 1px solid #1F1652;
+    padding: 10px;
+}
 .main h1{
     text-align: center;
     color: #1F1652;

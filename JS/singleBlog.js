@@ -6,7 +6,7 @@ const fetch_singleBlog = async () => {
 
     const res = await fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`);
     const blog = await res.json();
-console.log(blog.data._id)
+
     const blogHTML = `
     <div class="leftSide"> 
     <h1>${blog.data.title}</h1>
@@ -21,7 +21,7 @@ console.log(blog.data._id)
        <img src="../images/BackICNBlue.png" alt="" class="backward"/></a>
        <a href="./comment.html?id=${blog.data._id}"><img src="../images/comment.png"alt="" class="comment"/><span id="likes"></span></a>
        560k</span>
-        <img src="../images/likes.png" alt="" class="like"/> <span id="likes">200k</span>
+       
  </div>
  </div>
             `

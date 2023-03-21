@@ -1,5 +1,3 @@
-
-
 const url = "https://excited-visor-hen.cyclic.app/api/"
 const postProject = async () => {
     const ProjectForm = document.querySelector("#form");
@@ -99,28 +97,26 @@ const fetch_clientproject = async () => {
 fetch_clientproject();
 
 
-// delete blog
-const deleteproject = async (blogId) => {
+// delete project
+const deleteproject = async (projectId) => {
     try {
-      const res = await fetch(`${url}/project/delete/${blogId}`, {
+      const res = await fetch(`${url}/project/delete/${projectId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
       });
       if (res.ok) {
-        toastr.success("Blog deleted successfully");
-        // Update the view after deleting the blog
+        toastr.success("project deleted successfully");
+        // Update the view after deleting the project
         viewProjects();
       } else {
-        toastr.info("Something went wrong while deleting the blog");
+        toastr.info("Something went wrong while deleting the project");
       }
     } catch (error) {
       toastr.error("OOPS there is problem try again later!!");
     }
   }
-
-
-
+  
 
 window.addEventListener("DOMContentLoaded", () => viewProjects());
