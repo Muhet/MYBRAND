@@ -25,11 +25,11 @@ const ViewMessages = async () => {
                 <p>${message.email}</p>
             </div>
             <div class="table_cell">
-                <p>${message.createdAt}</p>
+                <p>${message.createdAt.slice(0, 10)}</p>
             </div>
             <div class="table_cell">
                 <div class="actionIcons last_cell">
-                <a href="start.html?id=">
+                <a href="start.html?id=${message._id}">
                 <img src="../images/ViewsIcon.png" alt="" id="editIcon"" onclick="renderMess()"/></a>
                     <img src="../images/Delete.png" alt="" id="deleteIcon" onClick="deleteMessage('${message._id}');"/>
                 </div>

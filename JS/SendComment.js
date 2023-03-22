@@ -6,7 +6,7 @@ newComForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const commentBody = document.querySelector("#commentBody").value;
     const data = { commentBody }
-    const response = fetch(`https://excited-visor-hen.cyclic.app/api/blog/create/${blogId}/comments`,
+    const response = fetch(`http://localhost:3000/api/blog/create/${blogId}/comments`,
         {
             method: "POST",
             headers: {
@@ -16,38 +16,36 @@ newComForm.addEventListener('submit', (event) => {
         })
         .then((response) => {
             return response.json()
-
         }).then((data) => {
-           
             if (response.ok) {
                 Toastify({
                     text: "Sorry your comment is not sent!!",
                     duration: 3000,
                     newWindow: true,
                     close: true,
-                    gravity: "top", 
+                    gravity: "top",
                     position: "right",
                     stopOnFocus: true,
                     style: {
-                      background:"#96c93d",
+                        background: "#24BDF6",
                     },
-                    onClick: function(){} 
-                  }).showToast();
+                    onClick: function () { }
+                }).showToast();
 
             } else {
                 Toastify({
-                    text: "Thankyou for sending us you comment",
+                    text: "Thank you for sending us you comment",
                     duration: 3000,
                     newWindow: true,
                     close: true,
-                    gravity: "top", 
+                    gravity: "top",
                     position: "right",
                     stopOnFocus: true,
                     style: {
-                      background:"#96c93d",
+                        background: "#67DD59",
                     },
-                    onClick: function(){} 
-                  }).showToast();
+                    onClick: function () { }
+                }).showToast();
                 window.location.href = "./index.html"
 
             }
@@ -57,14 +55,14 @@ newComForm.addEventListener('submit', (event) => {
                 duration: 3000,
                 newWindow: true,
                 close: true,
-                gravity: "top", 
+                gravity: "top",
                 position: "right",
                 stopOnFocus: true,
                 style: {
-                  background:"#96c93d",
+                    background: "#FA2525",
                 },
-                onClick: function(){} // Callback after click
-              }).showToast();
+                onClick: function () { } // Callback after click
+            }).showToast();
         })
 
 });

@@ -9,7 +9,7 @@ formQuery.addEventListener('submit', (e) => {
     const message = document.querySelector("#message").value;
 
     const data = { names, phone, email, message }
-   const response =  fetch("https://excited-visor-hen.cyclic.app/api/message/create",
+   const response =  fetch("http://localhost:3000/api/message/create",
         {
             method: "POST",
             headers: {
