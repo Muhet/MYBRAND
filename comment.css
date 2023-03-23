@@ -93,11 +93,12 @@ nav ul li a:hover::after {
 
 .btn li {
     list-style: none;
-
-
-
 }
-
+.C_details{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
 .btn li a {
     text-decoration: none;
     color: black;

@@ -52,7 +52,7 @@ const viewProjects = async () => {
       <p>${work.description.slice(0, 20)}</p>
   </div>
   <div class="table_cell">
-  <p>${work.createdAt}</p>
+  <p>${work.createdAt.slice(0, 10)}</p>
 </div>
 <div class="table_cell">
 <div class="actionIcons last_cell">
@@ -82,7 +82,7 @@ const fetch_clientproject = async () => {
               <div class="workNumber">
                   <span id="workNumber">${pro._id.slice(5, 6)}</span>
               </div>
-              <a href="https://dgbuyoz.netlify.app/">
+              <a href="">
                   <img id="imageTwo" src="${pro.image}" alt="" />
               </a>
               <span class="PIC-descrption">

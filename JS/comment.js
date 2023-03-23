@@ -24,7 +24,7 @@ const fetch_comment = async () => {
                         </div>
                         <div class="table_cell last_cell">
                             <div class="actionIcons">
-                                <a href="viewComent.html/id=${comment._id}">
+                                <a href="comment_details.html/?id=${comment._id}">
                                     <img src="../images/ViewsIcon.png" alt="" id="editIcon""/>
                                 </a>
                                 <img src="../images/Delete.png" alt="" id="deleteIcon" onclick="deletecomment('${comment.blog}', '${comment._id}')"/>
@@ -62,18 +62,20 @@ fetch_comment();
 
 
 
-const viewComment = async (blog_id, comment_id) => {
-    const ViewContent = document.querySelector('#View_comment');
+const viewComment = async (id) => {
+    const View_content = document.querySelector('.C_details');
+   
     fetch(`https://excited-visor-hen.cyclic.app/api/blog/${id}`)
       .then((res) => res.json())
       .then((Blog) => {
-        fetch(`https://excited-visor-hen.cyclic.app/api/comments`+id)
+        fetch(`https://excited-visor-hen.cyclic.app/api/comment`+id)
           .then((response) => response.json())
           .then((comments) => {
             let temp = "";
             Blog.data.forEach((blog) => {
               comments.data.forEach((comment) => {
-                temp += `
+                console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+                temp = `
                   <h2 id="comentTitle">${blog.title}</h2>
                   <div class="cards_Main_comment">
                     <div class="left_Cards_comment" id="Cards_comment">
@@ -94,7 +96,7 @@ const viewComment = async (blog_id, comment_id) => {
                 `;
               })
             })
-            ViewContent.innerHTML = temp;
+            View_content.innerHTML = temp;
           });
       });
   }
