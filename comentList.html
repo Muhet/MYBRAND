@@ -13,10 +13,8 @@
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./Admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>My-Brand--Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+ <title>My-Brand--Admin</title>
     
 </head>
 
@@ -48,10 +46,21 @@
                     <i class="fa fa-comments"></i>
 
                 </a>
+                <a href="Project_List.html">
+                    Project List
+                    <i class="fa fa-newspaper"></i>
+                </a>
                 <a href="new_article.html">
                     new Article
                     <i class="fa fa-newspaper"></i>
-
+                </a>
+                <a href="new_Project.html">
+                    new Project
+                    <i class="fa fa-newspaper"></i>
+                </a>
+                <a href="Messages.html">
+                    Messages
+                    <i class="fa fa-newspaper"></i>
                 </a>
             </div>
             
@@ -72,142 +81,26 @@
                         <div class="table_cell first_cell">
                             <p>ID</p>
                         </div>
-                        <div class="table_cell">
-                            <p>Names</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>E-mails</p>
-                        </div>
+                        
                         <div class="table_cell">
                             <p>Coments</p>
+                        </div>
+                        <div class="table_cell">
+                            <p>Blog Id</p>
+                        </div>
+                        <div class="table_cell">
+                            <p>Date</p>
                         </div>
                         <div class="table_cell last_cell">
                             <p>Action</p>
                         </div>
                     </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>01</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>Dusenge Gad</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <a href="viewComent.html">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/></a>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
+
+                    <div id="Client_comment">
+
                     </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>02</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>Clement Iradukunda</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>03</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>Kabila Kabera</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>04</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>Manzi Grace</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>05</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>Kwizera Eric</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="table_row">
-                        <div class="table_cell first_cell">
-                            <p>06</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>M. Darius</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>muhedarius@gmail.com</p>
-                        </div>
-                        <div class="table_cell">
-                            <p>That is good Idea you ca..</p>
-                        </div>
-                        <div class="table_cell last_cell">
-                            <div class="actionIcons">
-                                <img src="../images/ViewsIcon.png" alt="" id="editIcon"/>
-                                <img src="../images/Delete.png" alt="" id="deleteIcon"/>
-                            </div>
-                        </div>
-                    </div>
-                 
-                </div>
+                   
+               </div>
             </main>
             <div class="action">
                 <div class="edit_settings">
@@ -228,14 +121,19 @@
                 <h3>CopyRight &copy;2023</h3>
             </footer>
         </div>
+        <script src="./JS/comment.js"></script>
         <script src="../JS/index.js"></script>
         <script type="text/javascript">
             function toggleMenu() {
                 let Mmenu = document.querySelector('.menuprofile ');
                 Mmenu.classList.toggle('active')
             }
-    
-    
-        </script></body>
+    </script>
+      <script src="./JS/DashBoardsAdds.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        </body>
 
 </html>

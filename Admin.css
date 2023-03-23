@@ -682,6 +682,10 @@ main h2 {
     vertical-align: middle;
 
 }
+.table_row:hover {
+    background: whitesmoke;    
+
+}
 
 .actionIcons {
     display: flex;
@@ -742,7 +746,21 @@ main h2 {
     margin: auto;
    
 }
-
+.C_details{
+   display: flex;
+   justify-content: space-between;
+   margin: 100px 150px;
+}
+.C_details_Panel{
+    border-left: 1px solid #1f1652;
+    
+}
+#new_com{
+    margin-left: 10px;
+    border-bottom: 1px solid lightgray;
+    color: gray;
+    font-size: 15px;
+}
 .main_Admin {
     
      max-width: auto;
